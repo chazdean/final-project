@@ -1,0 +1,30 @@
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+## Versions
+* ruby 2.6.6
+* rails 5.2.6
+* Node v16.13.2
+* React 17.0.2
+* yarn 1.22.17
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+# final-project
