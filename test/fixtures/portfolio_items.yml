@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  symbol: MyString
+  long_name: MyString
+  shares: MyString
+  category: MyString
+
+two:
+  user: two
+  symbol: MyString
+  long_name: MyString
+  shares: MyString
+  category: MyString
