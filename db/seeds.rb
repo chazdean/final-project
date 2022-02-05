@@ -8,13 +8,13 @@
 
 User.destroy_all
 
-puts "Creating Users ..."
+puts "Creating Database ..."
 
 User.create!({
-  email: "rnarey0@cyberchimps.com",
-  password: "Ripley",
-  first_name: "Simmins",
-  last_name: "Narey",
+  email: "bob@gmail.com",
+  password: "123",
+  first_name: "Bob",
+  last_name: "Bobberton",
   email_notifications: false
 })
 
@@ -49,6 +49,83 @@ User.create!({
   last_name: "Effemy",
   email_notifications: false
 })
+
+
+PortfolioItem.create!({
+  user_id: 1,
+  symbol:"AAPL",
+  long_name: "Apple Inc",
+  shares: 10,
+  category: "Common Stock"
+})
+
+PortfolioItem.create!({
+  user_id: 1,
+  symbol:"DOGE/USD",
+  long_name: "Doge Coin",
+  shares: 1500,
+  category: "Common Stock"
+})
+
+PortfolioItem.create!({
+  user_id: 1,
+  symbol:"NFLX",
+  long_name: "Netflix Inc",
+  shares: 25,
+  category: "Common Stock"
+})
+
+PortfolioItem.create!({
+  user_id: 1,
+  symbol:"BTC/USD",
+  long_name: "Bitcoin",
+  shares: 0.75,
+  category: "Cryptocurrency"
+})
+
+PortfolioItem.create!({
+  user_id: 1,
+  symbol:"TSLA",
+  long_name: "Tesla Inc",
+  shares: 14,
+  category: "Common Stock"
+})
+
+WatchListItem.create!({
+  user_id: 1,
+  symbol:"SQ",
+  long_name: "Block Inc",
+  category: "Common Stock"
+})
+
+WatchListItem.create!({
+  user_id: 1,
+  symbol:"ETH/USD",
+  long_name: "Ethereum",
+  category: "Cryptocurrency"
+})
+
+WatchListItem.create!({
+  user_id: 1,
+  symbol:"GOOGL",
+  long_name: "Alphabet Inc",
+  category: "Common Stock"
+})
+
+WatchListItem.create!({
+  user_id: 1,
+  symbol:"UBER",
+  long_name: "UBER Technologies Inc",
+  category: "Common Stock"
+})
+
+WatchListItem.create!({
+  user_id: 1,
+  symbol:"SHIB/USD",
+  long_name: "Shiba Inu",
+  category: "Cryptocurrency"
+})
+
 
 puts "Done"
 

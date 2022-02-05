@@ -6,7 +6,7 @@ const assets = [
   },
   {
     symbol: "DOCU",
-    name: "Apple Inc",
+    name: "Docusign",
     category: "Common Stock",
   },
   {
