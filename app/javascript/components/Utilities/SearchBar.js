@@ -12,19 +12,28 @@ export default function SearchBar() {
   }
 
   const handleSelection = (event, newSelection) => {
-    setSelectedValue(newSelection.symbol);
+    setSelectedValue(newSelection.id);
   }
 
   return (
     <Autocomplete
       id="search-bar"
-      sx={{ width: 600, margin: 10 }}  // may need to revise styles once page component is made
+      sx={{ marginBottom: 3 }}  // may need to revise styles once page component is made
       options={assets}
       getOptionLabel={(option) => `${option.long_name} (${option.symbol})`}
       noOptionsText={"No Results, try Netflix, Bitcoin, AMZN ..."}
       disableClearable={true}
 
-      renderInput={(params) => <TextField {...params} label="Search" />}
+      renderInput={(params) => {
+        return (
+          <TextField
+            color="secondary"
+            fullWidth
+            {...params} label="Which stock or crypto?"
+          />
+        )
+      }
+      }
 
       value={selectedValue.symbol}
       onChange={handleSelection}
