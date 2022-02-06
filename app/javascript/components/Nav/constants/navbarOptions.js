@@ -1,32 +1,39 @@
+import React from 'react';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 export const navbarOptions = [
 {
   id: 1,
-  icon: '',
+  icon: <DashboardIcon />,
   label: 'Dashboard', 
-  route: ''
+  route: 'dashboard'
 }, 
 {
   id: 2,
-  icon: '',
+  icon: <ShowChartIcon />,
   label: 'Portfolio', 
-  route: ''
+  route: 'portfolio'
 }, 
 {
   id: 3,
-  icon: '',
+  icon: <VisibilityIcon />,
   label: 'Watchlist', 
-  route: ''
+  route: 'watchlist'
 }, 
 {
   id: 4,
-  icon: '',
+  icon: <NotificationsIcon />,
   label: 'Notifications', 
-  route: ''
+  route: 'notifications'
 },
 {
   id: 5,
-  icon: '',
+  icon: <LogoutIcon />,
   label: 'Logout', 
-  route: ''
+  route: 'logout'
 }
 ]
