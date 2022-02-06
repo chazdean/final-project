@@ -235,8 +235,8 @@ export const assets = [
   },
   {
     id: 40,
-    symbol: "V",
-    name: "Visa Inc",
+    symbol: "DDOG",
+    name: "Datadog Inc",
     category: "Common Stock"
   },
   {
@@ -268,5 +268,35 @@ export const assets = [
     symbol: "ABNB",
     name: "Airbnb Inc",
     category: "Common Stock"
+  },
+  {
+    id: 46,
+    symbol: "EBAY",
+    name: "eBay Inc",
+    category: "Common Stock"
+  },
+  {
+    id: 47,
+    symbol: "CRWD",
+    name: "CrowdStrike Holdings Inc",
+    category: "Common Stock"
+  },
+  {
+    id: 48,
+    symbol: "DPZ",
+    name: "Dominos Pizza Inc",
+    category: "Common Stock"
+  },
+  {
+    id: 49,
+    symbol: "ATVI",
+    name: "Activision Blizzard Inc",
+    category: "Common Stock"
+  },
+  {
+    id: 50,
+    symbol: "BCH/USD",
+    name: "Bitcoin Cash",
+    category: "Cryptocurrency"
   }
 ];
