@@ -26,6 +26,7 @@ export default function NavBar() {
       <List>
         {navbarOptions.map((option, index) => (
           <ListItem 
+            sx={navStyles.listItem}
             button 
             key={option.id}
             onClick={() => navigate(option.route)}
