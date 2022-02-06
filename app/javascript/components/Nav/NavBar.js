@@ -6,10 +6,14 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { useNavigate } from "react-router-dom";
+
 
 import { navbarOptions } from "./constants/navbarOptions";
 
 export default function NavBar() {
+
+  const navigate = useNavigate();
   const drawerWidth = 220;
   return (
     <Drawer
@@ -28,7 +32,11 @@ export default function NavBar() {
       <Divider />
       <List>
         {navbarOptions.map((option, index) => (
-          <ListItem button key={option.id}>
+          <ListItem 
+            button 
+            key={option.id}
+            onClick={() => navigate(option.route)}
+          >
             <ListItemIcon>{option.icon}</ListItemIcon>
             <ListItemText primary={option.label} />
           </ListItem>
