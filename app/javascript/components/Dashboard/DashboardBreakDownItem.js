@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+
 
 export default function DashboardSummaryItem(props) {
   
@@ -13,9 +12,6 @@ export default function DashboardSummaryItem(props) {
       <CardContent>
          <h1>Title</h1>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
     </Grid>
   );
