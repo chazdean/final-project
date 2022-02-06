@@ -3,10 +3,11 @@ import DashboardSummaryItem from "./DashboardSummaryItem";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { dashboardStyles } from "./styles";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import DougnutChart from "../charts/DoughnutChart";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import PieChart from "../charts/PieChart";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -28,24 +29,25 @@ export default function Dashboard() {
           title={"Total Investments"}
           total={total.investment}
         />
-        <DashboardSummaryItem 
-          title={"Total Stocks"} 
-          total={total.stock} 
-        />
-        <DashboardSummaryItem 
-          title={"Total Crypto"} 
-          total={total.crypto} 
-        />
+        <DashboardSummaryItem title={"Total Stocks"} total={total.stock} />
+        <DashboardSummaryItem title={"Total Crypto"} total={total.crypto} />
       </Grid>
       <Grid container spacing={2}>
-      <Grid item xs={6} md={4}>
-      <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <DougnutChart />
-      </CardContent>
-    </Card>
-    </Grid>
-    </Grid>
+        <Grid item xs={6} md={4}>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <DougnutChart />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <PieChart />
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
     </Box>
   );
 }
