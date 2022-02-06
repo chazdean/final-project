@@ -1,9 +1,14 @@
 import React from "react";
 import DashboardSummaryItem from "./DashboardSummaryItem";
-import DashboardBreakDownItem from "./DashboardBreakDownItem"
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { dashboardStyles } from "./styles";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import DougnutChart from "../charts/DoughnutChart";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Dashboard() {
   // will need fake data and will have to see if I can run through an array of items
@@ -33,10 +38,14 @@ export default function Dashboard() {
         />
       </Grid>
       <Grid container spacing={2}>
-        <DashboardBreakDownItem />
-        <DashboardBreakDownItem />
-        <DashboardBreakDownItem />
-      </Grid>
+      <Grid item xs={6} md={4}>
+      <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <DougnutChart />
+      </CardContent>
+    </Card>
+    </Grid>
+    </Grid>
     </Box>
   );
 }
