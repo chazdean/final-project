@@ -17,11 +17,17 @@ export default function PortfolioForm(props) {
     setSelectedAsset(newSelection.id);
   }
 
+  const handleSubmit = () => {
+    console.log("add new portfolio item")
+    // onAdd(shares, selectedAsset)
+  }
+
 
   return (
     <Paper elevation={3} >
       <Box p={3}>
-        <Typography variant="subtitle1" gutterBottom>Add to your portfolio:</Typography>
+        <Typography variant="subtitle1" mb={2}>Add to your portfolio:</Typography>
+
         <form noValidate autoComplete='off' onSubmit={(event) => event.preventDefault()} >
           <TextField
             sx={{ marginBottom: 3 }}
@@ -42,7 +48,7 @@ export default function PortfolioForm(props) {
             color="secondary"
             variant="contained"
             endIcon={<AddIcon />}
-            onClick={() => console.log("Clicked Button")}
+            onClick={handleSubmit}
           >
             Add
           </Button>
