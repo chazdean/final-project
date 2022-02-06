@@ -1,14 +1,9 @@
 import React from "react";
 import DashboardSummaryItem from "./DashboardSummaryItem";
-import { styled } from "@mui/material/styles";
+import DashboardBreakDownItem from "./DashboardBreakDownItem"
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { dashboardStyles } from "./styles";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 
 export default function Dashboard() {
   // will need fake data and will have to see if I can run through an array of items
@@ -36,6 +31,11 @@ export default function Dashboard() {
           title={"Total Crypto"} 
           total={total.crypto} 
         />
+      </Grid>
+      <Grid container spacing={2}>
+        <DashboardBreakDownItem />
+        <DashboardBreakDownItem />
+        <DashboardBreakDownItem />
       </Grid>
     </Box>
   );
