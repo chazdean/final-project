@@ -1,18 +1,14 @@
 import React from 'react'
 import { useState } from 'react';
 import { Autocomplete, TextField, Box } from '@mui/material';
-import { assets } from '../../constants/assetsArray'
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const { selectedAsset, handleSelection, assets } = props
+
   const [searchValue, setSearchValue] = useState('');
-  const [selectedValue, setSelectedValue] = useState('');
 
-  const handleInput = (event, newInputValue) => {
-    setSearchValue(newInputValue)
-  }
-
-  const handleSelection = (event, newSelection) => {
-    setSelectedValue(newSelection.id);
+  const handleSearch = (event, newSearchValue) => {
+    setSearchValue(newSearchValue)
   }
 
   return (
@@ -35,10 +31,10 @@ export default function SearchBar() {
       }
       }
 
-      value={selectedValue.symbol}
+      value={selectedAsset.symbol}
       onChange={handleSelection}
       inputValue={searchValue}
-      onInputChange={handleInput}
+      onInputChange={handleSearch}
     />
   );
 }
