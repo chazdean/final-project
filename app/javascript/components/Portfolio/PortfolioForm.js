@@ -6,8 +6,16 @@ import SearchBar from '../Utilities/SearchBar';
 import { Paper, TextField, Button, Box, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-export default function PortfolioForm() {
-  const [shares, setShares] = useState(0)
+
+export default function PortfolioForm(props) {
+  const { assets } = props;
+
+  const [shares, setShares] = useState(0);
+  const [selectedAsset, setSelectedAsset] = useState(0);
+
+  const handleSelection = (event, newSelection) => {
+    setSelectedAsset(newSelection.id);
+  }
 
 
   return (
@@ -24,7 +32,11 @@ export default function PortfolioForm() {
             placeholder='Shares'
             onChange={(event) => setShares(event.target.value)}
           />
-          <SearchBar />
+          <SearchBar
+            selectedAsset={selectedAsset}
+            handleSelection={handleSelection}
+            assets={assets}
+          />
           <Button
             type='submit'
             color="secondary"
