@@ -1,6 +1,7 @@
 class Api::PortfolioItemsController < ApplicationController
     def show
         @portfolio_items = PortfolioItem.where(user_id: params[:id])
+        #get asset data for each item
         @portfolio_params = get_porfolio_params(@portfolio_items).join(',')
         new_portfolio_items = @portfolio_items.map { |item| item.attributes }
         @current_prices = get_current_prices(@portfolio_params)
@@ -18,12 +19,15 @@ class Api::PortfolioItemsController < ApplicationController
     end
 
     def create
+        #number of shares, and assetID, userID
     end
 
     def update
+        #portfolio_item_id, shares
     end
 
     def destroy
+        #portfolio_item_id
     end
 
 
