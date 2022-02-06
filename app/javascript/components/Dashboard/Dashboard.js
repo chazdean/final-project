@@ -1,35 +1,42 @@
-import React from 'react'
-import DashboardSummaryItem from './DashboardSummaryItem';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import { dashboardStyles } from './styles';
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
+import React from "react";
+import DashboardSummaryItem from "./DashboardSummaryItem";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import { dashboardStyles } from "./styles";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
 
 export default function Dashboard() {
-    return (
+  // will need fake data and will have to see if I can run through an array of items
+  // need to make one first to see if it will work.
+  // store totals in state
+  // axious request to the backend
+  const total = {
+    investment: "24,6798.93",
+    stock: "155,333.65",
+    crypto: "91,465.28",
+  };
 
+  return (
     <Box sx={dashboardStyles.box}>
       <Grid container spacing={2}>
-        <Grid item xs={6} md={4}>
-          <Item>xs=6 md=4</Item>
-        </Grid>
-        <Grid item xs={6} md={8}>
-          <Item>xs=6 md=8</Item>
-        </Grid>
+        <DashboardSummaryItem
+          title={"Total Investments"}
+          total={total.investment}
+        />
+        <DashboardSummaryItem 
+          title={"Total Stocks"} 
+          total={total.stock} 
+        />
+        <DashboardSummaryItem 
+          title={"Total Crypto"} 
+          total={total.crypto} 
+        />
       </Grid>
     </Box>
   );
-
-          //  <DashboardSummaryItem />
-  
 }
