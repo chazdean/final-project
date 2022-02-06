@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react'
 
 //Components
 import SearchBar from '../Utilities/SearchBar';
@@ -8,9 +7,9 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 export default function PortfolioForm(props) {
-  const { assets } = props;
+  const { assetsList } = props;
 
-  const [shares, setShares] = useState(0);
+  const [shares, setShares] = useState(null);
   const [selectedAsset, setSelectedAsset] = useState(0);
 
   const handleSelection = (event, newSelection) => {
@@ -18,8 +17,9 @@ export default function PortfolioForm(props) {
   }
 
   const handleSubmit = () => {
-    console.log("add new portfolio item")
+    console.log(`added new portfolio item assetID:${selectedAsset}, shares:${shares}`)
     // onAdd(shares, selectedAsset)
+    // might need to clear the form? or refresh the page from the portfolio component
   }
 
 
@@ -41,7 +41,7 @@ export default function PortfolioForm(props) {
           <SearchBar
             selectedAsset={selectedAsset}
             handleSelection={handleSelection}
-            assets={assets}
+            assetsList={assetsList}
           />
           <Button
             type='submit'
@@ -55,9 +55,6 @@ export default function PortfolioForm(props) {
         </form>
       </Box>
     </Paper >
-
-
-
 
   );
 }
