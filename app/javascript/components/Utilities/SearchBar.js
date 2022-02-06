@@ -20,7 +20,7 @@ export default function SearchBar() {
       id="search-bar"
       sx={{ width: 600, margin: 10 }}  // may need to revise styles once page component is made
       options={assets}
-      getOptionLabel={(option) => `${option.name} (${option.symbol})`}
+      getOptionLabel={(option) => `${option.long_name} (${option.symbol})`}
       noOptionsText={"No Results, try Netflix, Bitcoin, AMZN ..."}
       disableClearable={true}
 
