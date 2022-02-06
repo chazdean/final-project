@@ -14,9 +14,6 @@ export default function DashboardSummaryItem(props) {
           <h1>{props.title}</h1>
           <h2>{props.total}</h2>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
     </Grid>
   );
