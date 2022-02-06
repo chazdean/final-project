@@ -16,24 +16,24 @@ export const navbarOptions = [
   id: 2,
   icon: <ShowChartIcon />,
   label: 'Portfolio', 
-  route: 'portfolio'
+  route: '/portfolio'
 }, 
 {
   id: 3,
   icon: <VisibilityIcon />,
   label: 'Watchlist', 
-  route: 'watchlist'
+  route: '/watchlist'
 }, 
 {
   id: 4,
   icon: <NotificationsIcon />,
   label: 'Notifications', 
-  route: 'notifications'
+  route: '/notifications'
 },
 {
   id: 5,
   icon: <LogoutIcon />,
   label: 'Logout', 
-  route: 'logout'
+  route: '/logout'
 }
 ]
