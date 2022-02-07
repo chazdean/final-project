@@ -4,6 +4,8 @@ import DashboardBreakDownItem from "./DashboardBreakDownItem";
 //MUI
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 //Charts
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -99,10 +101,19 @@ export default function Dashboard() {
         <DashboardSummaryItem title={"Total Stocks"} total={total.stock} />
         <DashboardSummaryItem title={"Total Crypto"} total={total.crypto} />
       </Grid>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
         <DashboardBreakDownItem data={portfolioData} pieChart={false} />
         <DashboardBreakDownItem data={stockData} pieChart={true} />
         <DashboardBreakDownItem data={cryptoData} pieChart={true} />
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={6} md={8} sx={dashboardStyles.watchList}>
+          <Card sx={{ minWidth: 275 }}>
+            <CardContent>
+              <h1>Watch List: <span>10 Stocks,</span><span>7 Crypto</span></h1>
+            </CardContent>
+          </Card>
+       </Grid>
       </Grid>
     </Box>
   );
