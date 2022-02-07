@@ -9,15 +9,23 @@ import AddIcon from '@mui/icons-material/Add';
 export default function PortfolioForm(props) {
   const { assetsList } = props;
 
-  const [shares, setShares] = useState(null);
-  const [selectedAsset, setSelectedAsset] = useState(0);
+  const [shares, setShares] = useState('');
+  const [selectedAsset, setSelectedAsset] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = (event, newInputValue) => {
+    setSearchValue(newInputValue)
+  }
 
   const handleSelection = (event, newSelection) => {
-    setSelectedAsset(newSelection.id);
+    setSelectedAsset(newSelection);
   }
 
   const handleSubmit = () => {
-    console.log(`added new portfolio item assetID:${selectedAsset}, shares:${shares}`)
+    console.log(`added new portfolio item assetID:${selectedAsset.id}, shares:${shares}`)
+    setShares(() => '')
+    setSelectedAsset(() => null)
+    setSearchValue(() => '')
     // onAdd(shares, selectedAsset)
     // might need to clear the form? or refresh the page from the portfolio component
   }
@@ -37,8 +45,11 @@ export default function PortfolioForm(props) {
             color="secondary"
             placeholder='Shares'
             onChange={(event) => setShares(event.target.value)}
+            value={shares}
           />
           <SearchBar
+            searchValue={searchValue}
+            handleSearch={handleSearch}
             selectedAsset={selectedAsset}
             handleSelection={handleSelection}
             assetsList={assetsList}
