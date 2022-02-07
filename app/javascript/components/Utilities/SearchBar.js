@@ -5,13 +5,7 @@ import { Autocomplete, TextField } from '@mui/material';
 
 
 export default function SearchBar(props) {
-  const { selectedAsset, handleSelection, assetsList } = props
-
-  const [searchValue, setSearchValue] = useState('');
-
-  const handleSearch = (event, newSearchValue) => {
-    setSearchValue(newSearchValue)
-  }
+  const { searchValue, handleSearch, selectedAsset, handleSelection, assetsList } = props
 
   return (
     <Autocomplete
@@ -33,7 +27,7 @@ export default function SearchBar(props) {
       }
       }
 
-      value={selectedAsset.symbol}
+      value={selectedAsset}
       onChange={handleSelection}
       inputValue={searchValue}
       onInputChange={handleSearch}
