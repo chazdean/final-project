@@ -27,14 +27,19 @@ export default function PortfolioForm(props) {
     setSelectedAsset(() => null)
     setSearchValue(() => '')
     // onAdd(shares, selectedAsset)
-    // might need to clear the form? or refresh the page from the portfolio component
+  }
+
+  const handleClear = () => {
+    setShares(() => '')
+    setSelectedAsset(() => null)
+    setSearchValue(() => '')
   }
 
 
   return (
     <Paper elevation={3} >
       <Box p={3}>
-        <Typography variant="subtitle1" mb={2}>Add to your portfolio:</Typography>
+        <Typography color="secondary" variant="subtitle1" mb={2}>Add to your portfolio:</Typography>
 
         <form noValidate autoComplete='off' onSubmit={(event) => event.preventDefault()} >
           <TextField
@@ -54,15 +59,19 @@ export default function PortfolioForm(props) {
             handleSelection={handleSelection}
             assetsList={assetsList}
           />
-          <Button
-            type='submit'
-            color="secondary"
-            variant="contained"
-            endIcon={<AddIcon />}
-            onClick={handleSubmit}
-          >
-            Add
-          </Button>
+          <Box>
+            <Button sx={{ marginRight: 3 }} color="secondary" onClick={handleClear}>Clear</Button>
+            <Button
+              type='submit'
+              color="secondary"
+              variant="contained"
+              endIcon={<AddIcon />}
+              onClick={handleSubmit}
+              disabled={!(selectedAsset && shares)}
+            >
+              Add
+            </Button>
+          </Box>
         </form>
       </Box>
     </Paper >
