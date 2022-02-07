@@ -8,11 +8,11 @@ export default function DashboardSummaryItem(props) {
   return (
     <Grid item xs={6} md={4}>
       <Card sx={{ minWidth: 275 }}>
-      <CardContent>
+        <CardContent>
           <h1>{props.title}</h1>
           <h2>{props.total}</h2>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
     </Grid>
   );
 }

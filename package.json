@@ -11,6 +11,7 @@
     "axios": "^0.25.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chart.js": "^3.7.0",
+    "chartjs-plugin-datalabels": "^2.0.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.1",
