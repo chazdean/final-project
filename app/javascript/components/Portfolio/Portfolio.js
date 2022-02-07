@@ -110,10 +110,12 @@ export default function Portfolio() {
         <PortfolioList
           data={pageData.stocksList}
         />
+      </Box>
 
-        {/* <PortfolioList
-        data={pageData.cryptoList}
-      /> */}
+      <Box mt={10}>
+        <PortfolioList
+          data={pageData.cryptoList}
+        />
       </Box>
     </Container>
   );
