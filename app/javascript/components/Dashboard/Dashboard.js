@@ -13,7 +13,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import ChartDataLabels from "chartjs-plugin-datalabels";
+// import ChartDataLabels from "chartjs-plugin-datalabels";
 
 
 //Charts
@@ -22,17 +22,16 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 //Styles
 import { dashboardStyles } from "./styles";
 
+//Registering Charts
 ChartJS.register(ArcElement, Tooltip, Legend);
-ChartJS.register(ChartDataLabels);
+//ChartJS.register(ChartDataLabels);
 
 export default function Dashboard() {
-
-
   return (
     <Box sx={dashboardStyles.box}>
       <SummaryCardList summaryData={summaryData} />
       <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
-        <BreakDown data={portfolioData} pieChart={false} />
+        <BreakDown data={portfolioData} options={options} pieChart={false} />
         <BreakDown data={stockData} pieChart={true} />
         <BreakDown data={cryptoData} pieChart={true} />
       </Grid>
