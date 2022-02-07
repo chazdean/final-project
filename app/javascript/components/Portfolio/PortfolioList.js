@@ -22,8 +22,8 @@ export default function PortfolioList(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((item) => (
-            <PortfolioListItem key={item.id} asset={item} />
+          {data.map((portfolioItem) => (
+            <PortfolioListItem key={portfolioItem.id} portfolioItem={portfolioItem} />
           ))}
         </TableBody>
       </Table>

@@ -8,17 +8,19 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 
 export default function PortfolioListItem(props) {
-  const { asset } = props;
+  const { portfolioItem } = props;
 
   const [open, setOpen] = useState(false);
   const [newShares, setNewShares] = useState('');
 
   const handleUpdate = () => {
-    console.log("update clicked")
+    console.log(`update clicked on item ${portfolioItem.id}`)
+    // onUpdate(newShares, portfolioItem.id)
   }
 
   const handleDelete = () => {
-    console.log("delete clicked")
+    console.log(`delete clicked on item ${portfolioItem.id}`)
+    // onDelete(portfolioItem.id)
   }
 
   return (
@@ -34,12 +36,12 @@ export default function PortfolioListItem(props) {
           </IconButton>
         </TableCell>
 
-        <TableCell align="center">{asset.symbol}</TableCell>
-        <TableCell align="center">{asset.long_name}</TableCell>
-        <TableCell align="center">{asset.shares}</TableCell>
-        <TableCell align="center">{asset.price}</TableCell>
-        <TableCell align="center">{asset.total_value}</TableCell>
-        <TableCell align="center">{asset.percent}</TableCell>
+        <TableCell align="center">{portfolioItem.symbol}</TableCell>
+        <TableCell align="center">{portfolioItem.long_name}</TableCell>
+        <TableCell align="center">{portfolioItem.shares}</TableCell>
+        <TableCell align="center">{portfolioItem.price}</TableCell>
+        <TableCell align="center">{portfolioItem.total_value}</TableCell>
+        <TableCell align="center">{portfolioItem.percent}</TableCell>
       </TableRow>
 
       <TableRow>
