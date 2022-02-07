@@ -13,7 +13,6 @@ export const summaryData = [
   }
 ]
 
-
 export const portfolioData = {
   labels: ["Stocks", "Crypto"],
   datasets: [
