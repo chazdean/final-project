@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 //Components
 import PortfolioListItem from './PortfolioListItem'
-import { TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper, Box } from '@mui/material';
+import { TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper } from '@mui/material';
 
 export default function PortfolioList(props) {
   const { data } = props
@@ -22,8 +22,8 @@ export default function PortfolioList(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((row) => (
-            <PortfolioListItem key={row.id} row={row} />
+          {data.map((item) => (
+            <PortfolioListItem key={item.id} asset={item} />
           ))}
         </TableBody>
       </Table>
