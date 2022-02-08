@@ -6,5 +6,11 @@ class ProfileMailer < ApplicationMailer
   #   en.profile_mailer.profile_summary_send.subject
   #
   def profile_summary_send
- 
+    @greeting = "Hello! Welcome to you profile information for DATE and TIME"
+    @user = params[:user] # will have to pass in user to get the proper email
+    mail(
+      to: @user.email, 
+      subject: "Your Profile in Review"
+    )
   end
+end
