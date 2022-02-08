@@ -14,6 +14,8 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 // import ChartDataLabels from "chartjs-plugin-datalabels";
+
+//Router
 import { Link } from "react-router-dom";
 
 //Charts
@@ -29,6 +31,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Dashboard() {
   return (
     <Box sx={dashboardStyles.box}>
+      <h1>Dashboard</h1>
       <SummaryCardList summaryData={summaryData} link={"/portfolio"} />
       <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
         <BreakDown data={portfolioData} link={"/portfolio"} pieChart={false} />
