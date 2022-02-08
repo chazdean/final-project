@@ -1,5 +1,25 @@
-<h1>Profile#profile_summary_send</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/profile_mailer/profile_summary_send.html.erb
-</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Here is your daily portfolio breakdown <%= #@order.name will have to add name here if needed %>!</p>
+    <p>
+    Profile details<br>
+    --------------------------
+    </p>
+    <p>Percentage stocks/crypto</p>
+    <%# Grand total %>
+    <p>Stocks:</p>
+     <%# List current prices and total %>
+    <p>Crypto:</p>
+    <%# List current prices and total %>
+    <p>Watching 10 Stocks and 7 Crypto</p> 
+    <%#list these here %>
+    Message:<br>
+    ----------
+    </p>
+  </body>
+</html>
+<%# Enter all varaibles passed in from the controller that we want to use %>
