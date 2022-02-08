@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 export default function SummaryCardList(props) {
   const summaryDataArray = props.summaryData.map((asset) => {
     return (
-      <SummaryCard key={asset.title} title={asset.title} total={asset.total} />
+      <SummaryCard key={asset.title} title={asset.title} total={asset.total} link={props.link}/>
     );
   });
 

@@ -3,6 +3,7 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import { Link } from 'react-router-dom';
 
 //Charts
 import DougnutChart from "../charts/DoughnutChart";
@@ -11,6 +12,7 @@ import PieChart from "../charts/PieChart";
 export default function BreakDown(props) {
   return (
     <Grid item xs={6} md={4}>
+      <Link to={props.link}> 
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           {props.pieChart ? (
@@ -20,6 +22,7 @@ export default function BreakDown(props) {
           )}
         </CardContent>
       </Card>
+      </Link>
     </Grid>
   );
 }
