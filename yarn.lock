@@ -1993,7 +1993,6 @@ cacache@^15.0.5:
   dependencies:
     "@npmcli/fs" "^1.0.0"
     "@npmcli/move-file" "^1.0.1"
-<<<<<<< HEAD
     "chownr" "^2.0.0"
     "fs-minipass" "^2.0.0"
     "glob" "^7.1.4"
@@ -2118,7 +2117,6 @@ cacache@^15.0.5:
     "path-is-absolute" "^1.0.0"
     "readdirp" "^2.2.1"
     "upath" "^1.1.1"
-=======
     chownr "^2.0.0"
     fs-minipass "^2.0.0"
     glob "^7.1.4"
@@ -2229,7 +2227,6 @@ chalk@^2.0, chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
     is-glob "~4.0.1"
     normalize-path "~3.0.0"
     readdirp "~3.6.0"
->>>>>>> fd8470f0a2dde2d2fca65953a21a3923f90f5068
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -5473,7 +5470,6 @@ postcss-lab-function@^2.0.1:
   integrity sha512-whLy1IeZKY+3fYdqQFuDBf8Auw+qFuVnChWjmxm/UhHWqNHZx+B99EwxTvGYmUBqe3Fjxs4L1BoZTJmPu6usVg==
   dependencies:
     "@csstools/convert-colors" "^1.4.0"
-<<<<<<< HEAD
     "postcss" "^7.0.2"
     "postcss-values-parser" "^2.0.0"
 
@@ -6197,7 +6193,6 @@ postcss-lab-function@^2.0.1:
   "integrity" "sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw=="
   "resolved" "https://registry.npmjs.org/regenerator-transform/-/regenerator-transform-0.14.5.tgz"
   "version" "0.14.5"
-=======
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
@@ -6894,7 +6889,6 @@ regenerator-transform@^0.14.2:
   version "0.14.5"
   resolved "https://registry.npmjs.org/regenerator-transform/-/regenerator-transform-0.14.5.tgz"
   integrity sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==
->>>>>>> fd8470f0a2dde2d2fca65953a21a3923f90f5068
   dependencies:
     "@babel/runtime" "^7.8.4"
 

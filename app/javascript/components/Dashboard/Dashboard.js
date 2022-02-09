@@ -7,6 +7,7 @@ import {
   stockData,
   cryptoData,
 } from "./componentData";
+import {sortStocks, sortCryptos} from "../helpers/sort.js"
 
 //MUI
 import Box from "@mui/material/Box";
@@ -28,7 +29,14 @@ import { dashboardStyles } from "./styles";
 ChartJS.register(ArcElement, Tooltip, Legend);
 //ChartJS.register(ChartDataLabels);
 
-export default function Dashboard() {
+
+export default function Dashboard(props) {
+
+  const stockList = sortStocks(portfolioItems);
+  const cryptoList = sortCryptos(portfolioItems);
+
+  const { portfolioItems } = props;
+  
   return (
     <Box sx={dashboardStyles.box}>
       <h1>Dashboard</h1>
