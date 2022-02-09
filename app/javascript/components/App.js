@@ -32,7 +32,7 @@ export default function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard portfolioItems={appData.portfolioItems}/>} />
         <Route path="/portfolio" element={<Portfolio portfolioItems={appData.portfolioItems} />} />
       </Routes>
     </BrowserRouter>
