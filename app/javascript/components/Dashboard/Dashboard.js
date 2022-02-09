@@ -1,16 +1,11 @@
 import React from "react";
 import SummaryCard from "./SummaryCard";
 import BreakDown from "./BreakDown";
-import {
-  summaryData,
-  portfolioData,
-  stockData,
-  cryptoData,
-} from "./componentData";
 
 //Helpers
 import { sortStocks, sortCryptos } from "../../helpers/sort";
 import { totalValue, totalPercent } from "../../helpers/totals";
+import { chartData } from "../../helpers/charts";
 
 //MUI
 import Box from "@mui/material/Box";
@@ -42,6 +37,8 @@ export default function Dashboard(props) {
   const totalStockValue = totalValue(stockList);
   const totalCryptoValue = totalValue(cryptoList);
 
+  const stockChartData = chartData(stockList)
+  const cryptoChartData = chartData(cryptoList)
 
 
   return (
@@ -66,8 +63,8 @@ export default function Dashboard(props) {
       </Grid>
       <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
         {/* <BreakDown data={portfolioItems} link={"/portfolio"} pieChart={false} /> */}
-        <BreakDown data={stockData} link={"/portfolio"} pieChart={true} />
-        {/* <BreakDown data={cryptoData} link={"/portfolio"} pieChart={true} /> */}
+        <BreakDown data={stockChartData} link={"/portfolio"} pieChart={true} />
+        <BreakDown data={cryptoChartData} link={"/portfolio"} pieChart={true} />
       </Grid>
       {/* <Grid container spacing={2}>
         <Grid item xs={6} md={8} sx={dashboardStyles.watchList}>
