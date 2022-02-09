@@ -10,16 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_195518) do
+ActiveRecord::Schema.define(version: 2022_02_06_212347) do
 
-  create_table "portfolio_items", force: :cascade do |t|
+  create_table "assets", force: :cascade do |t|
     t.string "symbol"
     t.string "long_name"
-    t.integer "shares"
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "portfolio_items", force: :cascade do |t|
+    t.integer "shares"
     t.integer "user_id"
+    t.integer "asset_id"
+    t.index ["asset_id"], name: "index_portfolio_items_on_asset_id"
     t.index ["user_id"], name: "index_portfolio_items_on_user_id"
   end
 
@@ -35,11 +40,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_195518) do
 
   create_table "watch_list_items", force: :cascade do |t|
     t.integer "user_id"
-    t.string "symbol"
-    t.string "long_name"
-    t.string "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "asset_id"
+    t.index ["asset_id"], name: "index_watch_list_items_on_asset_id"
     t.index ["user_id"], name: "index_watch_list_items_on_user_id"
   end
 
