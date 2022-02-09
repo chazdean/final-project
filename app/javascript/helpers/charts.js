@@ -36,7 +36,7 @@ export const assetChartData = (assetList) => {
   return chartData;
 };
 
-export const totalPercentData = (stockPercent, cryptoPercent) => {
+export const totalPercentChartData = (stockPercent, cryptoPercent) => {
   let chartData = {
     labels: ["Stocks", "Crypto"],
     datasets: [
