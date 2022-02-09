@@ -1,5 +1,5 @@
 import React from "react";
-import SummaryCardList from "./SummaryCardList";
+import SummaryCard from "./SummaryCard";
 import BreakDown from "./BreakDown";
 import {
   summaryData,
@@ -7,7 +7,10 @@ import {
   stockData,
   cryptoData,
 } from "./componentData";
-import {sortStocks, sortCryptos} from "../helpers/sort.js"
+
+//Helpers
+import { sortStocks, sortCryptos } from "../../helpers/sort";
+import { totalValue, totalPercent } from "../../helpers/totals";
 
 //MUI
 import Box from "@mui/material/Box";
@@ -29,24 +32,44 @@ import { dashboardStyles } from "./styles";
 ChartJS.register(ArcElement, Tooltip, Legend);
 //ChartJS.register(ChartDataLabels);
 
-
 export default function Dashboard(props) {
+  const { portfolioItems } = props;
 
   const stockList = sortStocks(portfolioItems);
   const cryptoList = sortCryptos(portfolioItems);
 
-  const { portfolioItems } = props;
-  
+  const totalPortfolioValue = totalValue(portfolioItems);
+  const totalStockValue = totalValue(stockList);
+  const totalCryptoValue = totalValue(cryptoList);
+
+
+
   return (
     <Box sx={dashboardStyles.box}>
       <h1>Dashboard</h1>
-      <SummaryCardList summaryData={summaryData} link={"/portfolio"} />
-      <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
-        <BreakDown data={portfolioData} link={"/portfolio"} pieChart={false} />
-        <BreakDown data={stockData} link={"/portfolio"} pieChart={true} />
-        <BreakDown data={cryptoData} link={"/portfolio"} pieChart={true} />
-      </Grid>
       <Grid container spacing={2}>
+        <SummaryCard
+          title={"Total Investments"}
+          total={totalPortfolioValue}
+          link={"/portfolio"}
+        />
+        <SummaryCard
+          title={"Total Stocks"}
+          total={totalStockValue}
+          link={"/portfolio"}
+        />
+        <SummaryCard
+          title={"Total Crypto"}
+          total={totalCryptoValue}
+          link={"/portfolio"}
+        />
+      </Grid>
+      <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
+        {/* <BreakDown data={portfolioItems} link={"/portfolio"} pieChart={false} /> */}
+        <BreakDown data={stockData} link={"/portfolio"} pieChart={true} />
+        {/* <BreakDown data={cryptoData} link={"/portfolio"} pieChart={true} /> */}
+      </Grid>
+      {/* <Grid container spacing={2}>
         <Grid item xs={6} md={8} sx={dashboardStyles.watchList}>
           <Link to={"/watchlist"} style={{ textDecoration: "none" }}>
             <Card sx={{ minWidth: 275 }}>
@@ -58,7 +81,7 @@ export default function Dashboard(props) {
             </Card>
           </Link>
         </Grid>
-      </Grid>
+      </Grid> */}
     </Box>
   );
 }
