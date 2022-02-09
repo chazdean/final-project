@@ -41,7 +41,7 @@ export default function PortfolioListItem(props) {
         <TableCell align="center">{portfolioItem.shares}</TableCell>
         <TableCell align="center">{portfolioItem.price}</TableCell>
         <TableCell align="center">{portfolioItem.total_value}</TableCell>
-        <TableCell align="center">{portfolioItem.percent}</TableCell>
+        <TableCell align="center">{portfolioItem.percent_of_portfolio}</TableCell>
       </TableRow>
 
       <TableRow>
