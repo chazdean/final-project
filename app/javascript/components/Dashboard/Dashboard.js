@@ -39,7 +39,11 @@ export default function Dashboard(props) {
   const totalStockPercent = totalPercent(stockList);
   const totalCryptoPercent = totalPercent(stockList);
 
-  const portfolioChartData = totalPercentChartData(totalStockPercent, totalCryptoPercent);
+
+  const portfolioStockPercentage = totalStockValue/totalPortfolioValue * 100
+  const portfolioCryptoPercentage = totalCryptoValue/totalPortfolioValue * 100
+
+  const portfolioChartData = totalPercentChartData(portfolioStockPercentage, portfolioCryptoPercentage);
   const stockChartData = assetChartData(stockList);
   const cryptoChartData = assetChartData(cryptoList);
 
