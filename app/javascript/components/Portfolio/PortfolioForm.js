@@ -7,7 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 export default function PortfolioForm(props) {
-  const { assetsList } = props;
+  const { assetsList, addPortfolioItem } = props;
 
   const [shares, setShares] = useState('');
   const [selectedAsset, setSelectedAsset] = useState(null);
@@ -15,25 +15,25 @@ export default function PortfolioForm(props) {
 
   const handleSearch = (event, newInputValue) => {
     setSearchValue(newInputValue)
-  }
+  };
 
   const handleSelection = (event, newSelection) => {
     setSelectedAsset(newSelection);
-  }
+  };
 
   const handleSubmit = () => {
-    console.log(`added new portfolio item assetID:${selectedAsset.id}, shares:${shares}`)
+    // console.log(`added new portfolio item assetID:${selectedAsset.id}, shares:${shares}`)
     setShares(() => '')
     setSelectedAsset(() => null)
     setSearchValue(() => '')
-    // onAdd(shares, selectedAsset)
-  }
+    addPortfolioItem(selectedAsset.id, shares)
+  };
 
   const handleClear = () => {
     setShares(() => '')
     setSelectedAsset(() => null)
     setSearchValue(() => '')
-  }
+  };
 
 
   return (
