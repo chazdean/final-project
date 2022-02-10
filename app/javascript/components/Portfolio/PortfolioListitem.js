@@ -8,20 +8,10 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 
 export default function PortfolioListItem(props) {
-  const { portfolioItem } = props;
+  const { portfolioItem, handleUpdate, handleDelete } = props;
 
   const [open, setOpen] = useState(false);
   const [newShares, setNewShares] = useState('');
-
-  const handleUpdate = () => {
-    console.log(`update clicked on item ${portfolioItem.id}`)
-    // onUpdate(newShares, portfolioItem.id)
-  }
-
-  const handleDelete = () => {
-    console.log(`delete clicked on item ${portfolioItem.id}`)
-    // onDelete(portfolioItem.id)
-  }
 
   return (
     <>
@@ -71,7 +61,7 @@ export default function PortfolioListItem(props) {
                 color="error"
                 variant="contained"
                 startIcon={<HighlightOffIcon />}
-                onClick={handleDelete}
+                onClick={() => handleDelete(portfolioItem.id)}
               >Delete</Button>
 
             </Box>
