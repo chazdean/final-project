@@ -8,7 +8,7 @@ import WatchList from "./WatchList";
 //Helpers
 import { sortStocks, sortCryptos } from "../../helpers/sort";
 import { totalValue, totalPercent, percentOfAsset } from "../../helpers/totals";
-import { assetChartData, totalPercentChartData } from "../../helpers/charts";
+import { assetChartData, totalPercentChartData, chartOptions } from "../../helpers/charts";
 
 //MUI
 import Box from "@mui/material/Box";
@@ -36,6 +36,7 @@ export default function Dashboard(props) {
   const totalStockValue = totalValue(stockList);
   const totalCryptoValue = totalValue(cryptoList);
 
+
   const totalCryptoPercent = percentOfAsset(cryptoList, totalCryptoValue);
   const totalStockPercent = percentOfAsset(stockList, totalStockValue)
 
@@ -45,6 +46,12 @@ export default function Dashboard(props) {
   const portfolioChartData = totalPercentChartData(portfolioStockPercentage, portfolioCryptoPercentage);
   const stockChartData = assetChartData(stockList, totalStockPercent);
   const cryptoChartData = assetChartData(cryptoList, totalCryptoPercent);
+  
+  console.log(stockChartData)
+
+  const portfolioChartOptions = chartOptions(portfolioChartData)
+  const stockChartOptions = chartOptions(stockChartData)
+  const cryptoChartOptions = chartOptions(cryptoChartData)
 
   
 
@@ -71,16 +78,19 @@ export default function Dashboard(props) {
       <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
         <BreakDown 
           data={portfolioChartData} 
+          options={portfolioChartOptions}
           link={"/portfolio"} 
           pieChart={false} 
         />
         <BreakDown 
-          data={stockChartData} 
+          data={stockChartData}
+          options={stockChartOptions} 
           link={"/portfolio"} 
           pieChart={true} 
         />
         <BreakDown 
-          data={cryptoChartData} 
+          data={cryptoChartData}
+          options={cryptoChartOptions}
           link={"/portfolio"} 
           pieChart={true} 
         />

@@ -16,9 +16,9 @@ export default function BreakDown(props) {
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           {props.pieChart ? (
-            <PieChart data={props.data} />
+            <PieChart data={props.data} options={props.options} />
           ) : (
-            <DougnutChart data={props.data} />
+            <DougnutChart data={props.data} options={props.options} />
           )}
         </CardContent>
       </Card>

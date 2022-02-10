@@ -6,7 +6,7 @@ export default function PieChart(props) {
   return (
      <div>
        <div>
-       <Pie data={props.data} />
+       <Pie data={props.data} options={props.options}/>
        </div>
      </div>
   )
