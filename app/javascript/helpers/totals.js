@@ -21,7 +21,6 @@ export const percentOfAsset = (dataArray, totalValue) => {
   const percentOfAssetArray = [];
   dataArray.map((asset) => {
     percentOfAssetArray.push(asset.total_value/totalValue * 100);
-
   })
 
   return percentOfAssetArray;
