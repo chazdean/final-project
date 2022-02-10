@@ -60,7 +60,23 @@ export const totalPercentChartData = (stockPercent, cryptoPercent) => {
       },
     ],
   };
-
   return chartData;
 };
 
+
+export const chartOptions = (chartData) => {
+  const percentChartOptions = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            return (
+              chartData["datasets"][0]["data"][tooltipItem.dataIndex] + "%"
+            );
+          },
+        },
+      },
+    },
+  };
+  return percentChartOptions
+};
