@@ -7,7 +7,7 @@ import WatchList from "./WatchList";
 
 //Helpers
 import { sortStocks, sortCryptos } from "../../helpers/sort";
-import { totalValue, totalPercent } from "../../helpers/totals";
+import { totalValue, totalPercent, percentOfAsset } from "../../helpers/totals";
 import { assetChartData, totalPercentChartData } from "../../helpers/charts";
 
 //MUI
@@ -36,16 +36,17 @@ export default function Dashboard(props) {
   const totalStockValue = totalValue(stockList);
   const totalCryptoValue = totalValue(cryptoList);
 
-  const totalStockPercent = totalPercent(stockList);
-  const totalCryptoPercent = totalPercent(stockList);
-
+  const totalCryptoPercent = percentOfAsset(cryptoList, totalCryptoValue);
+  const totalStockPercent = percentOfAsset(stockList, totalStockValue)
 
   const portfolioStockPercentage = totalStockValue/totalPortfolioValue * 100
   const portfolioCryptoPercentage = totalCryptoValue/totalPortfolioValue * 100
 
   const portfolioChartData = totalPercentChartData(portfolioStockPercentage, portfolioCryptoPercentage);
-  const stockChartData = assetChartData(stockList);
-  const cryptoChartData = assetChartData(cryptoList);
+  const stockChartData = assetChartData(stockList, totalStockPercent);
+  const cryptoChartData = assetChartData(cryptoList, totalCryptoPercent);
+
+  
 
   return (
     <Box sx={dashboardStyles.box}>

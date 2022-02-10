@@ -1,17 +1,15 @@
-export const assetChartData = (assetList) => {
+export const assetChartData = (assetList, totalAssetPercent) => {
   let labels = [];
-  let data = [];
 
   assetList.map((asset) => {
     labels.push(asset.symbol);
-    data.push(asset.percent_of_portfolio);
   });
 
   let chartData = {
     labels: labels,
     datasets: [
       {
-        data: data,
+        data: totalAssetPercent,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
