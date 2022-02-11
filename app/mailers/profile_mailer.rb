@@ -9,7 +9,7 @@ class ProfileMailer < ApplicationMailer
     @greeting = "Hello! Welcome to you profile information for DATE and TIME"
     #@user = params[:user] # will have to pass in user to get the proper email
     mail(
-      to: <USER EMAIL>,  ## this will be @user.email 
+      to: ENV["USER_EMAIL"],  ## this will be @user.email 
       subject: "Your Profile in Review"
     )
   end
