@@ -26,7 +26,7 @@ export default function Portfolio(props) {
   const percentCryptos = totalPercent(cryptoList);
 
   return (
-    <Container>
+    <Container sx={{ marginLeft: 250 }}>
       <Box>
         <PortfolioForm
           assetsList={assets}
