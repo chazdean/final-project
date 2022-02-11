@@ -17,7 +17,7 @@ class Api::PortfolioItemsController < ApplicationController
         #Creates string of stock symbols needed for api call
         asset_api_params = get_asset_api_params(asset_items).join(',')
 
-        #Returns json of all current prices of stock symbols
+        #Returns json of all current prices of stock symbols passed via params
         @current_prices = get_current_prices(asset_api_params)
 
         #Updates new_portfolio array by adding info from assets array and other data
@@ -41,42 +41,20 @@ class Api::PortfolioItemsController < ApplicationController
     end
 
     def update
-        portfolio_item = PortfolioItem.find_by(params[:id])
+        portfolio_item = PortfolioItem.find(params[:id])
         portfolio_item.update(portfolio_item_params)
     end
 
     def destroy
-        portfolio_item = PortfolioItem.find_by(params[:id])
+        portfolio_item = PortfolioItem.find(params[:id])
+        p portfolio_item
         portfolio_item.destroy
     end
-
+    
     private 
 
     def portfolio_item_params
         params.require(:portfolio_item).permit(:user_id, :asset_id, :shares)
-    end
-
-    def get_asset_api_params(asset_items_array)
-        asset_items_array.map { |item| item["symbol"] }
-    end
-
-    def get_current_prices(symbol_params)
-        response = HTTParty.get("https://api.twelvedata.com/price?symbol=#{symbol_params}&apikey=#{ENV["TWELVEDATA_API_KEY"]}")
-        JSON.parse(response.body)
-    end
-
-    def add_attr_current_price(portfolio_item)
-        symbol = portfolio_item["symbol"]
-            if @current_prices[symbol]
-                portfolio_item["price"] = @current_prices[symbol]["price"]
-            else
-                portfolio_item["price"] = "N/A"
-            end
-    end
-
-    def get_asset_logo(symbol_param)
-        response = HTTParty.get("https://api.twelvedata.com/logo?symbol=#{symbol_param}&apikey=#{ENV["TWELVEDATA_API_KEY"]}")
-        JSON.parse(response.body)["url"]
     end
 
     def get_total_value(portfolio_item)
