@@ -28,33 +28,34 @@ export default function Dashboard(props) {
 
   const { portfolioItems } = props;
 
+  //List of Assets
   const stockList = sortStocks(portfolioItems);
   const cryptoList = sortCryptos(portfolioItems);
 
-
+  // Total Value for Top Totals
   const totalPortfolioValue = totalValue(portfolioItems);
   const totalStockValue = totalValue(stockList);
   const totalCryptoValue = totalValue(cryptoList);
 
-
+  //Percent of that Asset
   const totalCryptoPercent = percentOfAsset(cryptoList, totalCryptoValue);
   const totalStockPercent = percentOfAsset(stockList, totalStockValue)
 
-  const portfolioStockPercentage = totalStockValue/totalPortfolioValue * 100
-  const portfolioCryptoPercentage = totalCryptoValue/totalPortfolioValue * 100
+  // Percent of Stock vs Crypto for whole portfolio
+  const portfolioStockPercentage = Math.round(totalStockValue/totalPortfolioValue * 100)
+  const portfolioCryptoPercentage = Math.round(totalCryptoValue/totalPortfolioValue * 100)
 
+  // Chart Data
   const portfolioChartData = totalPercentChartData(portfolioStockPercentage, portfolioCryptoPercentage);
   const stockChartData = assetChartData(stockList, totalStockPercent);
   const cryptoChartData = assetChartData(cryptoList, totalCryptoPercent);
-  
-  console.log(stockChartData)
 
+  //Chart Options
   const portfolioChartOptions = chartOptions(portfolioChartData)
   const stockChartOptions = chartOptions(stockChartData)
   const cryptoChartOptions = chartOptions(cryptoChartData)
 
   
-
   return (
     <Box sx={dashboardStyles.box}>
       <h1>Dashboard</h1>
