@@ -5,14 +5,14 @@ import PortfolioListItem from './PortfolioListItem'
 import { TableContainer, Table, TableBody, TableHead, TableRow, TableCell, Paper } from '@mui/material';
 
 export default function PortfolioList(props) {
-  const { data, deleteItem } = props
+  const { data, deleteItem, updatePortfolioItem } = props
 
-  const handleUpdate = () => {
-    console.log(`update clicked on item ${portfolioItem.id}`)
-    // onUpdate(newShares, portfolioItem.id)
+  const handleUpdate = (newShares, id, asset_id) => {
+    updatePortfolioItem(newShares, id, asset_id)
   }
 
   const handleDelete = (id) => {
+    console.log(`handle delete for portfolio item id: ${id}`)
     deleteItem("portfolio", id)
   }
 
