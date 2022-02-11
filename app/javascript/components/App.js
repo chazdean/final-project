@@ -5,6 +5,7 @@ import Portfolio from "./Portfolio/Portfolio";
 import NavBar from "./Nav/NavBar";
 import axios from "axios";
 import { removeOneFromList } from "../helpers/removeOneFromList"
+import { updateSharesForItem } from "../helpers/updateSharesForItem"
 
 const csrfToken = document.querySelector('[name="csrf-token"]').content
 axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
@@ -29,7 +30,7 @@ export default function App() {
     })
   }, [callData]);
 
-  console.log(appData.portfolioItems);
+  console.log(appData.portfolioItems); // DELETE LINE LATER
 
   const addPortfolioItem = (asset_id, shares) => {
     const portfolio_item = {
@@ -37,7 +38,6 @@ export default function App() {
       asset_id,
       shares
     }
-    // console.log(`axios.put with params, assetID: ${params.asset_id} and shares: ${params.shares}`);
     return axios.post(`http://localhost:3000/api/portfolio_items`, { portfolio_item })
       .then(() => {
         setCallData(!callData);
@@ -46,8 +46,9 @@ export default function App() {
 
   const deleteItem = (listName, id) => {
     if (listName === "portfolio") {
-      const watchListItems = [...appData.watchListItems]
+      const watchListItems = [...appData.watchListItems]  //delete this line or map out every obj in the array ... ??
       const newPortfolioItems = removeOneFromList(appData.portfolioItems, id)
+      console.log("new portfolio items state", newPortfolioItems);
 
       return axios.delete(`http://localhost:3000/api/portfolio_items/${id}`)
         .then(() => {
@@ -59,8 +60,26 @@ export default function App() {
         })
     }
     if (listName === "watchlist") {
-
+      // create similar logic to the above portfolio delete method
     }
+  };
+
+  const updatePortfolioItem = (newShares, id, asset_id) => {
+    // const newPortfolioItems = updateSharesForItem(appData.portfolioItems, newShares, id)
+    const portfolio_item = {
+      user_id: appData.currentUserId,
+      asset_id,
+      shares: newShares
+    }
+
+    return axios.patch(`http://localhost:3000/api/portfolio_items/${id}`, { portfolio_item })
+      .then(() => {
+        // setAppData((prev) => ({
+        //   ...prev,
+        //   portfolioItems: newPortfolioItems
+        // }))
+        setCallData(!callData);
+      })
   };
 
   return (
@@ -71,6 +90,7 @@ export default function App() {
         <Route path="/portfolio" element={<Portfolio
           portfolioItems={appData.portfolioItems}
           addPortfolioItem={addPortfolioItem}
+          updatePortfolioItem={updatePortfolioItem}
           deleteItem={deleteItem}
         />} />
 
