@@ -21,7 +21,7 @@ export const portfolioStyles = {
   headPaper: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '70%'
+    width: '80%'
 
   },
 
