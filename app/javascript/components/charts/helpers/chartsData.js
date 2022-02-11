@@ -70,7 +70,7 @@ export const chartOptions = (chartData) => {
         callbacks: {
           label: function (tooltipItem, data) {
             return (
-              chartData["datasets"][0]["data"][tooltipItem.dataIndex] + "%"
+              chartData["labels"][tooltipItem.dataIndex] + " - " + chartData["datasets"][0]["data"][tooltipItem.dataIndex] + "%"
             );
           },
         },
