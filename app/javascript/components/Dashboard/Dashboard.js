@@ -8,7 +8,7 @@ import WatchList from "./WatchList";
 //Helpers
 import { sortStocks, sortCryptos } from "../../helpers/sort";
 import { totalValue, totalPercent, percentOfAsset } from "../../helpers/totals";
-import { assetChartData, totalPercentChartData, chartOptions } from "../../helpers/charts";
+import { assetChartData, totalPercentChartData, chartOptions } from "../charts/helpers/chartsData";
 
 //MUI
 import Box from "@mui/material/Box";

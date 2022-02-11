@@ -63,7 +63,6 @@ export const totalPercentChartData = (stockPercent, cryptoPercent) => {
   return chartData;
 };
 
-
 export const chartOptions = (chartData) => {
   const percentChartOptions = {
     plugins: {
