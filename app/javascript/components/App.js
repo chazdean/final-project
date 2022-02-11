@@ -47,8 +47,7 @@ export default function App() {
   const deleteItem = (listName, id) => {
     if (listName === "portfolio") {
       const watchListItems = [...appData.watchListItems]  //delete this line or map out every obj in the array ... ??
-      const newPortfolioItems = removeOneFromList(appData.portfolioItems, id)
-      console.log("new portfolio items state", newPortfolioItems);
+      const newPortfolioItems = removeOneFromList(listName, appData.portfolioItems, id)
 
       return axios.delete(`http://localhost:3000/api/portfolio_items/${id}`)
         .then(() => {
