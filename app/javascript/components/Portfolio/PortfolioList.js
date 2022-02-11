@@ -15,7 +15,6 @@ export default function PortfolioList(props) {
   }
 
   const handleDelete = (id) => {
-    console.log(`handle delete for portfolio item id: ${id}`)
     deleteItem("portfolio", id)
   }
 
