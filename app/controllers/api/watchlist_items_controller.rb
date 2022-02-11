@@ -17,6 +17,7 @@ class Api::WatchlistItemsController < ApplicationController
         new_watchlist_items.each_with_index { |item, index| 
         item["symbol"] = asset_items[index]["symbol"]
         item["long_name"] = asset_items[index]["long_name"]
+        item["category"] = asset_items[index]["category"]
         add_attr_current_price(item)
         add_attr_percent_changes(item)
     }
