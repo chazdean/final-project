@@ -17,6 +17,12 @@ export const totalPercent = (dataArray) => {
   return dataArray.reduce((sum, current) => sum + current.percent_of_portfolio, 0);
 };
 
+/**
+ * percentofAsset 
+ * @param {array of objects} dataArray - any array of assets that you need the total_value
+ * @param {number} totalValue - total value of the assets so you can find percentage
+ * @returns sum of the portfolio percentages of each asset
+ */
 export const percentOfAsset = (dataArray, totalValue) => {
   const percentOfAssetArray = [];
   dataArray.map((asset) => {
