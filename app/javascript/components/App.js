@@ -65,7 +65,7 @@ export default function App() {
   };
 
   const updatePortfolioItem = (newShares, id, asset_id) => {
-    // const newPortfolioItems = updateSharesForItem(appData.portfolioItems, newShares, id)
+    const newPortfolioItems = updateSharesForItem(appData.portfolioItems, newShares, id)
     const portfolio_item = {
       user_id: appData.currentUserId,
       asset_id,
@@ -74,11 +74,10 @@ export default function App() {
 
     return axios.patch(`http://localhost:3000/api/portfolio_items/${id}`, { portfolio_item })
       .then(() => {
-        // setAppData((prev) => ({
-        //   ...prev,
-        //   portfolioItems: newPortfolioItems
-        // }))
-        setCallData(!callData);
+        setAppData((prev) => ({
+          ...prev,
+          portfolioItems: newPortfolioItems
+        }))
       })
   };
 
