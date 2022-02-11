@@ -9,6 +9,7 @@
 
 # Ignore .env file with secret
 **/.env
+/config/application.yml
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
