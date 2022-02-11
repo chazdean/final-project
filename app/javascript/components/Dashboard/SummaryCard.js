@@ -8,7 +8,6 @@ import { formatter } from "../../helpers/formatting";
 
 export default function DashboardSummaryItem(props) {
   
-  console.log(formatter.format(2500)); /* $2,500.00 */
   return (
     <Grid item xs={6} md={4}>
       <Link to={props.link} style={{ textDecoration: 'none' }}> 
