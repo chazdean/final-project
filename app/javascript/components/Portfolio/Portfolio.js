@@ -14,7 +14,7 @@ import { assets } from '../../constants/assetsArray'  //remove once database cal
 
 export default function Portfolio(props) {
 
-  const { portfolioItems, addPortfolioItem, deleteItem } = props;
+  const { portfolioItems, addPortfolioItem, updatePortfolioItem, deleteItem } = props;
 
   const stockList = sortStocks(portfolioItems);
   const cryptoList = sortCryptos(portfolioItems);
@@ -38,6 +38,7 @@ export default function Portfolio(props) {
         <PortfolioList
           data={stockList}
           deleteItem={deleteItem}
+          updatePortfolioItem={updatePortfolioItem}
         />
       </Box>
 
@@ -45,6 +46,7 @@ export default function Portfolio(props) {
         <PortfolioList
           data={cryptoList}
           deleteItem={deleteItem}
+          updatePortfolioItem={updatePortfolioItem}
         />
       </Box>
       <Typography>Stock Value{subtotalStocks}</Typography>
