@@ -53,7 +53,10 @@ export default function PortfolioListItem(props) {
                   type='submit'
                   color="secondary"
                   variant="contained"
-                  onClick={handleUpdate}
+                  onClick={() => {
+                    handleUpdate(newShares, portfolioItem.id, portfolioItem.asset_id);
+                    setNewShares('');
+                  }}
                 >Update</Button>
               </Box>
 
