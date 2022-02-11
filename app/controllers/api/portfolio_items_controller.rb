@@ -1,4 +1,7 @@
 class Api::PortfolioItemsController < ApplicationController
+    #Disabled CSRF Token for testing controllers REMOVE when done
+    skip_before_action :verify_authenticity_token
+
     def show
         portfolio_items = PortfolioItem.where(user_id: params[:id])
        
@@ -33,21 +36,24 @@ class Api::PortfolioItemsController < ApplicationController
     end
 
     def create
-        #number of shares, and assetID, userID
+        portfolio_item = PortfolioItem.new(portfolio_item_params)
+        portfolio_item.save
     end
 
     def update
-        #portfolio_item_id, shares
+        portfolio_item = PortfolioItem.find_by(params[:id])
+        portfolio_item.update(portfolio_item_params)
     end
 
     def destroy
-        #portfolio_item_id
+        portfolio_item = PortfolioItem.find_by(params[:id])
+        portfolio_item.destroy
     end
 
     private 
 
     def portfolio_item_params
-        params.require(:portfolio_item).permit(:id)
+        params.require(:portfolio_item).permit(:user_id, :asset_id, :shares)
     end
 
     def get_asset_api_params(asset_items_array)
