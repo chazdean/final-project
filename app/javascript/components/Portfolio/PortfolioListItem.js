@@ -8,20 +8,10 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 
 export default function PortfolioListItem(props) {
-  const { portfolioItem } = props;
+  const { portfolioItem, handleUpdate, handleDelete } = props;
 
   const [open, setOpen] = useState(false);
   const [newShares, setNewShares] = useState('');
-
-  const handleUpdate = () => {
-    console.log(`update clicked on item ${portfolioItem.id}`)
-    // onUpdate(newShares, portfolioItem.id)
-  }
-
-  const handleDelete = () => {
-    console.log(`delete clicked on item ${portfolioItem.id}`)
-    // onDelete(portfolioItem.id)
-  }
 
   return (
     <>
@@ -41,16 +31,16 @@ export default function PortfolioListItem(props) {
         <TableCell align="center">{portfolioItem.shares}</TableCell>
         <TableCell align="center">{portfolioItem.price}</TableCell>
         <TableCell align="center">{portfolioItem.total_value}</TableCell>
-        <TableCell align="center">{portfolioItem.percent}</TableCell>
+        <TableCell align="center">{portfolioItem.percent_of_portfolio}</TableCell>
       </TableRow>
 
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
           <Collapse in={open} timeout="auto" unmountOnExit>
 
-            <Box sx={{ padding: 2, display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+            <Box sx={{ padding: 2, display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
 
-              <Box sx={{ paddingRight: 25, display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+              <Box sx={{ pl: 4, pr: 4, display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
                 <TextField
                   label="New Shares"
                   variant="outlined"
@@ -59,11 +49,14 @@ export default function PortfolioListItem(props) {
                   value={newShares}
                 />
                 <Button
-                  sx={{ marginLeft: 5 }}
+                  sx={{ marginLeft: 4 }}
                   type='submit'
                   color="secondary"
                   variant="contained"
-                  onClick={handleUpdate}
+                  onClick={() => {
+                    handleUpdate(newShares, portfolioItem.id, portfolioItem.asset_id);
+                    setNewShares('');
+                  }}
                 >Update</Button>
               </Box>
 
@@ -71,7 +64,7 @@ export default function PortfolioListItem(props) {
                 color="error"
                 variant="contained"
                 startIcon={<HighlightOffIcon />}
-                onClick={handleDelete}
+                onClick={() => handleDelete(portfolioItem.id)}
               >Delete</Button>
 
             </Box>
