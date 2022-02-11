@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 //Components
 import PortfolioForm from './PortfolioForm';
 import PortfolioList from './PortfolioList';
-import { Container, Box, Typography } from '@mui/material';
+import SummaryCard from './SummaryCard';
+import { Box, Typography, Paper } from '@mui/material';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
 
-//Helpers
+//Constants
 import { sortStocks, sortCryptos } from '../../helpers/sort'
-import { totalValue, totalPercent } from '../../helpers/totals'
-
 import { assets } from '../../constants/assetsArray'  //remove once database call is working
+
+//Styles
+import { portfolioStyles } from "./styles"
 
 
 export default function Portfolio(props) {
@@ -19,22 +22,29 @@ export default function Portfolio(props) {
   const stockList = sortStocks(portfolioItems);
   const cryptoList = sortCryptos(portfolioItems);
 
-  const subtotalStocks = totalValue(stockList);
-  const subtotalCryptos = totalValue(cryptoList);
-
-  const percentStocks = totalPercent(stockList);
-  const percentCryptos = totalPercent(cryptoList);
-
   return (
-    <Container sx={{ marginLeft: 250 }}>
+    <Box sx={portfolioStyles.box}>
+
+      <Typography gutterBottom variant='h3' sx={portfolioStyles.title}>
+        <ShowChartIcon sx={portfolioStyles.icon} />
+        Portfolio
+      </Typography>
+
       <Box>
-        <PortfolioForm
-          assetsList={assets}
-          addPortfolioItem={addPortfolioItem}
-        />
+        <Paper elevation={3} sx={portfolioStyles.headPaper}>
+          <SummaryCard
+            stockList={stockList}
+            cryptoList={cryptoList}
+          />
+          <PortfolioForm
+            assetsList={assets}
+            addPortfolioItem={addPortfolioItem}
+          />
+        </Paper>
       </Box>
 
-      <Box mt={10}>
+      <Box mt={8}>
+        <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
         <PortfolioList
           data={stockList}
           deleteItem={deleteItem}
@@ -42,18 +52,15 @@ export default function Portfolio(props) {
         />
       </Box>
 
-      <Box mt={10}>
+      <Box mt={8}>
+        <Typography color="secondary" variant="subtitle1" mb={2}>Cryptocurrency</Typography>
         <PortfolioList
           data={cryptoList}
           deleteItem={deleteItem}
           updatePortfolioItem={updatePortfolioItem}
         />
       </Box>
-      <Typography>Stock Value{subtotalStocks}</Typography>
-      <Typography>Crypto Value{subtotalCryptos}</Typography>
-      <Typography>Portfolio Total{subtotalStocks + subtotalCryptos}</Typography>
-      <Typography>Stock Percent{percentStocks}</Typography>
-      <Typography>Crypto Percent{percentCryptos}</Typography>
-    </Container>
+
+    </Box>
   );
 }
