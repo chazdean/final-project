@@ -38,9 +38,9 @@ export default function PortfolioListItem(props) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
           <Collapse in={open} timeout="auto" unmountOnExit>
 
-            <Box sx={{ padding: 2, display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+            <Box sx={{ padding: 2, display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
 
-              <Box sx={{ paddingRight: 25, display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+              <Box sx={{ pl: 4, pr: 4, display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
                 <TextField
                   label="New Shares"
                   variant="outlined"
@@ -49,7 +49,7 @@ export default function PortfolioListItem(props) {
                   value={newShares}
                 />
                 <Button
-                  sx={{ marginLeft: 5 }}
+                  sx={{ marginLeft: 4 }}
                   type='submit'
                   color="secondary"
                   variant="contained"
