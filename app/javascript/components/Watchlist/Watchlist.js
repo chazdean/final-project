@@ -2,6 +2,7 @@ import React from 'react'
 
 //Components
 import SummaryCard from './SummaryCard';
+import WatchlistForm from './WatchlistForm'
 import { Box, Typography, Paper } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -34,10 +35,10 @@ export default function Watchlist(props) {
             stockList={stockList}
             cryptoList={cryptoList}
           />
-          {/* <WatchlistForm
+          <WatchlistForm
             assetsList={assets}
             addWatchlistItem={addWatchlistItem}
-          /> */}
+          />
         </Paper>
       </Box>
 
