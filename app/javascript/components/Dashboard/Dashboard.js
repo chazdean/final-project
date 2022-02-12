@@ -11,8 +11,8 @@ import { totalValue, totalPercent, percentOfAsset } from "../../helpers/totals";
 import { assetChartData, totalPercentChartData, chartOptions } from "../charts/helpers/chartsData";
 
 //MUI
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import {Box, Grid} from "@mui/material";
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 //Charts
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -58,7 +58,7 @@ export default function Dashboard(props) {
   
   return (
     <Box sx={dashboardStyles.box}>
-      <h1>Dashboard</h1>
+      <DashboardIcon/><h3>Dashboard</h3>
       <Grid container spacing={2}>
         <SummaryCard
           title={"Total Investments"}
