@@ -6,6 +6,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
+//Helpers
+import { formatter } from '../../helpers/formatting'
+
 
 export default function WatchlistListItem(props) {
   const { watchlistItem, handleDelete } = props;
@@ -27,7 +30,7 @@ export default function WatchlistListItem(props) {
 
         <TableCell align="center">{watchlistItem.symbol}</TableCell>
         <TableCell align="center">{watchlistItem.long_name}</TableCell>
-        <TableCell align="center">{Number(watchlistItem.price).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</TableCell>
+        <TableCell align="center">{formatter.format(watchlistItem.price)}</TableCell>
         <TableCell align="center" sx={(Number(watchlistItem.percent_change) < 0) ? { color: 'red' } : { color: 'green' }}>{Math.round(watchlistItem.percent_change * 100) / 100}%</TableCell>
       </TableRow>
 

@@ -26,7 +26,7 @@ export const portfolioStyles = {
   },
 
   summaryCard: {
-    p: 5,
+    p: 4,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between'

@@ -6,6 +6,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
+//Helpers
+import { formatter } from '../../helpers/formatting'
+
 
 export default function PortfolioListItem(props) {
   const { portfolioItem, handleUpdate, handleDelete } = props;
@@ -29,9 +32,9 @@ export default function PortfolioListItem(props) {
         <TableCell align="center">{portfolioItem.symbol}</TableCell>
         <TableCell align="center">{portfolioItem.long_name}</TableCell>
         <TableCell align="center">{portfolioItem.shares}</TableCell>
-        <TableCell align="center">{portfolioItem.price}</TableCell>
-        <TableCell align="center">{portfolioItem.total_value}</TableCell>
-        <TableCell align="center">{portfolioItem.percent_of_portfolio}</TableCell>
+        <TableCell align="center">{formatter.format(portfolioItem.price)}</TableCell>
+        <TableCell align="center">{formatter.format(portfolioItem.total_value)}</TableCell>
+        <TableCell align="center">{Math.round(portfolioItem.percent_of_portfolio * 100) / 100}%</TableCell>
       </TableRow>
 
       <TableRow>
