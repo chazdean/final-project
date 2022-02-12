@@ -26,8 +26,8 @@ class Api::WatchlistItemsController < ApplicationController
     end
 
     def create
-        watchlist_item = WatchListItem.find(params[:id])
-        watchlist_item.update(watchlist_item_params)
+        watchlist_item = WatchListItem.new(watchlist_item_params)
+        watchlist_item.save
     end
 
     def destroy
