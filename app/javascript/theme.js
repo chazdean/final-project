@@ -1,10 +1,24 @@
 import { createTheme } from "@mui/material";
-import space from "../../public/space.jpg";
 
-const primaryColor = "#555ea9";
-const secondaryColor = "#3a54af";
+const primaryColor = "#6E3CBC";
+const secondaryColor = "#289ebf";
 
 const theme = createTheme({
+  // typography: { // seems to not be applied to the dashboard cards, but is working on everything else
+  //   fontFamily: [
+  //     '-apple-system',
+  //     'BlinkMacSystemFont',
+  //     '"Segoe UI"',
+  //     'Roboto',
+  //     '"Helvetica Neue"',
+  //     'Arial',
+  //     'sans-serif',
+  //     '"Apple Color Emoji"',
+  //     '"Segoe UI Emoji"',
+  //     '"Segoe UI Symbol"',
+  //   ].join(','),
+  //   fontSize: 15,
+  // }, 
   palette: {
     type: "light",
     primary: {
@@ -18,7 +32,7 @@ const theme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         paperAnchorLeft: {
-          backgroundImage: `url(${space})`,
+          backgroundColor: primaryColor,
           color: "white",
         },
       },
@@ -27,11 +41,11 @@ const theme = createTheme({
       styleOverrides: {
         button: {
           "&:hover": {
-            backgroundColor: primaryColor,
-            color: "#FFF",
+            backgroundColor: "#8B63C9",
+            color: "white",
           },
           "&.Mui-selected": {
-            backgroundColor: primaryColor,
+            backgroundColor: "#4D2A83",
           },
         },
       },
@@ -44,16 +58,10 @@ const theme = createTheme({
           borderColor: primaryColor,
         },
       },
-    },
-    //Typography - use root to style the whole thing and then get more specific with h1, h2, so on
-    MuiTypography: {
-      styleOverrides: {
-        h1: {
-          fontSize: 20,
-        },
-      },
+      
     },
   },
+ 
 });
 
 export default theme;
