@@ -3,6 +3,7 @@ import React from 'react'
 //Components
 import SummaryCard from './SummaryCard';
 import WatchlistForm from './WatchlistForm'
+import WatchlistList from './WatchlistList'
 import { Box, Typography, Paper } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -42,7 +43,7 @@ export default function Watchlist(props) {
         </Paper>
       </Box>
 
-      {/* <Box mt={8}>
+      <Box mt={8}>
         <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
         <WatchlistList
           data={stockList}
@@ -56,7 +57,7 @@ export default function Watchlist(props) {
           data={cryptoList}
           deleteItem={deleteItem}
         />
-      </Box> */}
+      </Box>
 
     </Box>
   );
