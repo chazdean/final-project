@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
 import Portfolio from "./Portfolio/Portfolio";
+import Watchlist from "./Watchlist/Watchlist";
 import NavBar from "./Nav/NavBar";
 import axios from "axios";
 import { removeOneFromList } from "../helpers/removeOneFromList"
@@ -16,21 +17,23 @@ export default function App() {
   const [appData, setAppData] = useState({
     currentUserId: 1,
     portfolioItems: [],
-    watchListItems: []
+    watchlistItems: []
   });
 
   useEffect(() => {
     Promise.all([
-      axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`)
+      // axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`),
+      axios.get(`http://localhost:3000/api/watchlist_items/${appData.currentUserId}`)
     ]).then((all) => {
       setAppData((prev) => ({
         ...prev,
-        portfolioItems: all[0].data
+        // portfolioItems: all[0].data,
+        watchlistItems: all[0].data
       }))
     })
   }, [callData]);
 
-  console.log(appData.portfolioItems); // DELETE LINE LATER
+  console.log(appData.watchlistItems); // DELETE LINE LATER
 
   const addPortfolioItem = (asset_id, shares) => {
     const portfolio_item = {
@@ -46,20 +49,28 @@ export default function App() {
 
   const deleteItem = (listName, id) => {
     if (listName === "portfolio") {
-      const watchListItems = [...appData.watchListItems]  //delete this line or map out every obj in the array ... ??
+      // const watchlistItems = [...appData.watchlistItems]  //delete this line or map out every obj in the array ... ??
       const newPortfolioItems = removeOneFromList(listName, appData.portfolioItems, id)
 
       return axios.delete(`http://localhost:3000/api/portfolio_items/${id}`)
         .then(() => {
           setAppData((prev) => ({
             ...prev,
-            watchListItems,
             portfolioItems: newPortfolioItems
           }))
         })
     }
+
     if (listName === "watchlist") {
-      // create similar logic to the above portfolio delete method
+      const newWatchlistItems = removeOneFromList(listName, appData.watchlistItems, id)
+
+      return axios.delete(`http://localhost:3000/api/watchlist_items/${id}`)
+        .then(() => {
+          setAppData((prev) => ({
+            ...prev,
+            watchlistItems: newWatchlistItems
+          }))
+        })
     }
   };
 
@@ -80,6 +91,10 @@ export default function App() {
       })
   };
 
+  const addWatchlistItem = (id) => {
+
+  };
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -91,7 +106,11 @@ export default function App() {
           updatePortfolioItem={updatePortfolioItem}
           deleteItem={deleteItem}
         />} />
-
+        <Route path="/watchlist" element={<Watchlist
+          watchlistItems={appData.watchlistItems}
+          addWatchlistItem={addWatchlistItem}
+          deleteItem={deleteItem}
+        />} />
       </Routes>
     </BrowserRouter>
   );
