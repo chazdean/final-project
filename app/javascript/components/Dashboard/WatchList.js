@@ -1,9 +1,7 @@
 import * as React from "react";
 
 //MUI
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+import {Grid, Card, CardContent} from "@mui/material";
 
 //Router
 import { Link } from "react-router-dom";
@@ -16,7 +14,7 @@ export default function watchList(props) {
   return (
     <Grid item xs={6} md={8} sx={dashboardStyles.watchList}>
       <Link to={props.link} style={{ textDecoration: "none" }}>
-        <Card sx={{ minWidth: 275 }}>
+        <Card >
           <CardContent>
             <h1>Watch List: {props.stockCount} Stocks, {props.cryptoCount} Crypto </h1>
           </CardContent>

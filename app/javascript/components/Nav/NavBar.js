@@ -1,14 +1,20 @@
 import React from "react";
-import Drawer from "@mui/material/Drawer";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
+
+//MUI
+import {Drawer, List, Divider, ListItem} from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+
+//Router
 import { useNavigate, useLocation } from "react-router-dom";
+
+//Styles
 import { navStyles } from "./styles.js"
-import logo from "/public/astronaut_logo"
+
+//Logo
+import logo from "/public/logo_astronaut"
+
+//Navbar options
 import { navbarOptions } from "./constants/navbarOptions";
 
 export default function NavBar() {
@@ -32,7 +38,7 @@ export default function NavBar() {
             onClick={() => navigate(option.route)}
             selected={option.route === pathname}
           >
-            <ListItemIcon>{option.icon}</ListItemIcon>
+            <ListItemIcon sx={{color:"white"}}>{option.icon} </ListItemIcon>
             <ListItemText primary={option.label} />
           </ListItem>
         ))}

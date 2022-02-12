@@ -7,6 +7,8 @@ import NavBar from "./Nav/NavBar";
 import axios from "axios";
 import { removeOneFromList } from "../helpers/removeOneFromList"
 import { updateSharesForItem } from "../helpers/updateSharesForItem"
+import { ThemeProvider } from "@mui/material";
+import theme from "../theme"
 
 const csrfToken = document.querySelector('[name="csrf-token"]').content
 axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
@@ -104,6 +106,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <ThemeProvider theme={theme} >
       <NavBar />
       <Routes>
         <Route path="/" element={<Dashboard portfolioItems={appData.portfolioItems} />} />
@@ -119,6 +122,7 @@ export default function App() {
           deleteItem={deleteItem}
         />} />
       </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
