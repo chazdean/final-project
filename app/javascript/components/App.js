@@ -28,7 +28,7 @@ export default function App() {
       setAppData((prev) => ({
         ...prev,
         portfolioItems: all[0].data,
-        watchlistItems: all[0].data
+        watchlistItems: all[1].data
       }))
     })
   }, [callData]);
