@@ -22,12 +22,12 @@ export default function App() {
 
   useEffect(() => {
     Promise.all([
-      // axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`),
+      axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`),
       axios.get(`http://localhost:3000/api/watchlist_items/${appData.currentUserId}`)
     ]).then((all) => {
       setAppData((prev) => ({
         ...prev,
-        // portfolioItems: all[0].data,
+        portfolioItems: all[0].data,
         watchlistItems: all[0].data
       }))
     })
@@ -91,8 +91,15 @@ export default function App() {
       })
   };
 
-  const addWatchlistItem = (id) => {
-
+  const addWatchlistItem = (asset_id) => {
+    const watchlist_item = {
+      user_id: appData.currentUserId,
+      asset_id,
+    }
+    return axios.post(`http://localhost:3000/api/watchlist_items`, { watchlist_item })
+      .then(() => {
+        setCallData(!callData);
+      })
   };
 
   return (
