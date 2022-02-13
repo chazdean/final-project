@@ -6,13 +6,9 @@ export const dashboardStyles = {
     mt: 5,
   },
 
-  watchList: {
-    ml: 20
-  },
-
-  gridCharts: {
-    mt: 5,
-    mb: 5
+  gridBox: {
+    mt: 3,
+    mb: 3
   },
 
   title: {
@@ -26,18 +22,23 @@ export const dashboardStyles = {
     width: 'auto'
   },
 
+  card: {
+    minHeight: '105px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: "center",
+    justifyContent: "center"
+  },
+
   investmentsCard: {
-    borderColor: 'rgba(0,0,0,0.71)'
+    color: 'rgba(0,0,0,0.71)'
   },
 
   stocksCard: {
-    borderColor: '#6E3CBC'
+    color: '#6E3CBC'
   },
 
   cryptoCard: {
-    borderColor: '#289ebf'
+    color: '#289ebf'
   },
-
-
-
 };
