@@ -111,7 +111,10 @@ export default function App() {
       <ThemeProvider theme={theme} >
         <NavBar />
         <Routes>
-          <Route path="/" element={<Dashboard portfolioItems={appData.portfolioItems} />} />
+          <Route path="/" element={<Dashboard
+            portfolioItems={appData.portfolioItems}
+            watchlistItems={appData.watchlistItems}
+          />} />
           <Route path="/portfolio" element={<Portfolio
             portfolioItems={appData.portfolioItems}
             addPortfolioItem={addPortfolioItem}
