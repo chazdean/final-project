@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
 import Portfolio from "./Portfolio/Portfolio";
+import Notifications from "./notifications/Notifications";
 import NavBar from "./Nav/NavBar";
 import axios from "axios";
 
@@ -30,10 +31,11 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/portfolio" element={<Portfolio portfolioItems={appData.portfolioItems} />} />
+        <Route path="/notifications" element={<Notifications />}/>
       </Routes>
     </BrowserRouter>
   );
