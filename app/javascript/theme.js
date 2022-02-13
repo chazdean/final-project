@@ -58,23 +58,23 @@ const theme = createTheme({
       styleOverrides: {
         button: {
           "&:hover": {
-            backgroundColor: "#8B63C9",
+            backgroundColor: primaryLight,
             color: "white",
           },
           "&.Mui-selected": {
-            backgroundColor: "#4D2A83",
+            backgroundColor: primaryDark,
           },
         },
       },
     },
 
-    MuiCard: {
+    MuiPaper: {
       styleOverrides: {
-        root: {
-          minWidth: 275,
-          borderTopWidth: 10,
-          display: 'flex',
-          justifyContent: "center"
+        elevation8: {
+          transition: 'all 0.5s ease',
+          "&:hover": {
+            transform: 'scale(1.05)'
+          },
         },
       },
     },
@@ -118,8 +118,10 @@ const theme = createTheme({
           color: white,
           backgroundColor: secondaryLight,
           opacity: '90%',
+          transition: 'all 0.5s ease',
           "&:hover": {
             backgroundColor: secondaryDark,
+            transform: "scale(1.1)"
           },
         }
       }
