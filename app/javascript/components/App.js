@@ -108,7 +108,7 @@ export default function App() {
   return (
     <BrowserRouter>
     <ThemeProvider theme={theme} >
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<Dashboard portfolioItems={appData.portfolioItems} />} />
         <Route path="/portfolio" element={<Portfolio

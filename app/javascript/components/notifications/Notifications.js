@@ -6,7 +6,7 @@ export default function Notifications() {
   
   return (
 
-    <FormGroup>
+    <FormGroup sx={{ml: 30}} >
     <FormControlLabel control={<Switch defaultChecked />} label="Notifications" />
     <FormControlLabel disabled control={<Switch />} label="Disabled" />
   </FormGroup>
