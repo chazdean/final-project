@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :dashboard, only: [:index]
     resources :portfolio_items, except: [:edit, :index] 
-    resources :watchlist_items, only: [:index, :create, :destroy] 
+    resources :watchlist_items, only: [:show, :create, :destroy] 
     resources :assets, only: [:index]
     resources :notifications, only: [:index]
   end

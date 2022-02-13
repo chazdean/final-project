@@ -1,63 +1,61 @@
 import React from 'react'
 
 //Components
-import PortfolioForm from './PortfolioForm';
-import PortfolioList from './PortfolioList';
 import SummaryCard from './SummaryCard';
+import WatchlistForm from './WatchlistForm'
+import WatchlistList from './WatchlistList'
 import { Box, Typography, Paper } from '@mui/material';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
-//Constants
+//Constants & Helpers
 import { sortStocks, sortCryptos } from '../../helpers/sort'
 import { assets } from '../../constants/assetsArray'  //remove once database call is working
 
 //Styles
-import { portfolioStyles } from "./styles"
+import { watchlistStyles } from "./styles"
 
 
-export default function Portfolio(props) {
+export default function Watchlist(props) {
 
-  const { portfolioItems, addPortfolioItem, updatePortfolioItem, deleteItem } = props;
+  const { watchlistItems, addWatchlistItem, deleteItem } = props;
 
-  const stockList = sortStocks(portfolioItems);
-  const cryptoList = sortCryptos(portfolioItems);
+  const stockList = sortStocks(watchlistItems);
+  const cryptoList = sortCryptos(watchlistItems);
 
   return (
-    <Box sx={portfolioStyles.box}>
+    <Box sx={watchlistStyles.box}>
 
-      <Typography gutterBottom variant='h3' sx={portfolioStyles.title}>
-        <ShowChartIcon sx={portfolioStyles.icon} />
-        Portfolio
+      <Typography gutterBottom variant='h3' sx={watchlistStyles.title}>
+        <VisibilityIcon sx={watchlistStyles.icon} />
+        Watchlist
       </Typography>
 
       <Box>
-        <Paper elevation={3} sx={portfolioStyles.headPaper}>
+        <Paper elevation={3} sx={watchlistStyles.headPaper}>
           <SummaryCard
             stockList={stockList}
             cryptoList={cryptoList}
           />
-          <PortfolioForm
+          <WatchlistForm
             assetsList={assets}
-            addPortfolioItem={addPortfolioItem}
+            addWatchlistItem={addWatchlistItem}
           />
         </Paper>
       </Box>
 
       <Box mt={8}>
         <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
-        <PortfolioList
+        <WatchlistList
           data={stockList}
           deleteItem={deleteItem}
-          updatePortfolioItem={updatePortfolioItem}
         />
       </Box>
 
       <Box mt={8}>
         <Typography color="secondary" variant="subtitle1" mb={2}>Cryptocurrency</Typography>
-        <PortfolioList
+        <WatchlistList
           data={cryptoList}
           deleteItem={deleteItem}
-          updatePortfolioItem={updatePortfolioItem}
         />
       </Box>
 

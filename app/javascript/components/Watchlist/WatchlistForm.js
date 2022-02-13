@@ -2,17 +2,16 @@ import React, { useState } from 'react'
 
 //Components
 import SearchBar from '../Utilities/SearchBar';
-import { TextField, Button, Box, Typography } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 //Styles
-import { portfolioStyles } from './styles';
+import { watchlistStyles } from './styles';
 
 
-export default function PortfolioForm(props) {
-  const { assetsList, addPortfolioItem } = props;
+export default function WatchlistForm(props) {
+  const { assetsList, addWatchlistItem } = props;
 
-  const [shares, setShares] = useState('');
   const [selectedAsset, setSelectedAsset] = useState(null);
   const [searchValue, setSearchValue] = useState('');
 
@@ -25,34 +24,21 @@ export default function PortfolioForm(props) {
   };
 
   const handleSubmit = () => {
-    // console.log(`added new portfolio item assetID:${selectedAsset.id}, shares:${shares}`)
-    setShares(() => '')
     setSelectedAsset(() => null)
     setSearchValue(() => '')
-    addPortfolioItem(selectedAsset.id, shares)
+    addWatchlistItem(selectedAsset.id)
   };
 
   const handleClear = () => {
-    setShares(() => '')
     setSelectedAsset(() => null)
     setSearchValue(() => '')
   };
 
   return (
-    <Box sx={portfolioStyles.formCard}>
-      <Typography color="secondary" variant="subtitle1" mb={2}>Add to your portfolio:</Typography>
+    <Box sx={watchlistStyles.formCard}>
+      <Typography color="secondary" variant="subtitle1" mb={2}>Add to your Watchlist:</Typography>
 
       <form noValidate autoComplete='off' onSubmit={(event) => event.preventDefault()} >
-        <TextField
-          sx={{ marginBottom: 3 }}
-          label="Shares"
-          variant="outlined"
-          fullWidth
-          color="secondary"
-          placeholder='Shares'
-          onChange={(event) => setShares(event.target.value)}
-          value={shares}
-        />
         <SearchBar
           searchValue={searchValue}
           handleSearch={handleSearch}
@@ -60,7 +46,7 @@ export default function PortfolioForm(props) {
           handleSelection={handleSelection}
           assetsList={assetsList}
         />
-        <Box sx={portfolioStyles.formButtonBox}>
+        <Box sx={watchlistStyles.formButtonBox}>
           <Button sx={{ marginRight: 3 }} color="secondary" onClick={handleClear}>Clear</Button>
           <Button
             type='submit'
@@ -68,7 +54,7 @@ export default function PortfolioForm(props) {
             variant="contained"
             endIcon={<AddIcon />}
             onClick={handleSubmit}
-            disabled={!(selectedAsset && shares)}
+            disabled={!(selectedAsset)}
           >
             Add
           </Button>
