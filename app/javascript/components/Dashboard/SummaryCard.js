@@ -18,10 +18,10 @@ export default function DashboardSummaryItem(props) {
   return (
     <Grid item xs={6} md={4}>
       <Link to={props.link} style={{ textDecoration: 'none' }}>
-        <Card variant="outlined" sx={dashboardStyles[`${props.name}Card`]}>
-          <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: "center" }}>
-            <Typography variant='h5'>{props.title}</Typography>
-            <Typography variant='h5'>{formatter.format(props.total)}</Typography>
+        <Card raised={true}>
+          <CardContent sx={dashboardStyles.card}>
+            <Typography sx={dashboardStyles[`${props.name}Card`]} variant='h5'>{props.title}</Typography>
+            <Typography sx={dashboardStyles[`${props.name}Card`]} variant='h5'>{formatter.format(props.total)}</Typography>
           </CardContent>
         </Card>
       </Link>
