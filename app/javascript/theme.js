@@ -8,10 +8,6 @@ const secondary = "#289ebf";
 const secondaryLight = '#53B1CB';
 const secondaryDark = '#1C6E85';
 
-// const secondary = "#B8E4F0";
-// const secondaryLight = '#C6E9F3';
-// const secondaryDark = '#809FA8';
-
 const error = '#bf1435';
 const warning = '#bcae3c';
 const info = '#7267CB';
@@ -22,21 +18,6 @@ const textSecondary = 'rgba(0,0,0,0.6)';
 
 
 const theme = createTheme({
-  // typography: { // seems to not be applied to the dashboard cards, but is working on everything else
-  //   fontFamily: [
-  //     '-apple-system',
-  //     'BlinkMacSystemFont',
-  //     '"Segoe UI"',
-  //     'Roboto',
-  //     '"Helvetica Neue"',
-  //     'Arial',
-  //     'sans-serif',
-  //     '"Apple Color Emoji"',
-  //     '"Segoe UI Emoji"',
-  //     '"Segoe UI Symbol"',
-  //   ].join(','),
-  //   fontSize: 15,
-  // }, 
   palette: {
     type: 'light',
     primary: {
@@ -72,6 +53,7 @@ const theme = createTheme({
         },
       },
     },
+
     MuiListItem: {
       styleOverrides: {
         button: {
@@ -85,15 +67,18 @@ const theme = createTheme({
         },
       },
     },
+
     MuiCard: {
       styleOverrides: {
         root: {
           minWidth: 275,
-          borderTopWidth: 15,
-          borderColor: primary,
+          borderTopWidth: 10,
+          display: 'flex',
+          justifyContent: "center"
         },
       },
     },
+
     MuiTypography: {
       styleOverrides: {
         h3: {
@@ -101,6 +86,9 @@ const theme = createTheme({
         },
         h4: {
           color: primary
+        },
+        h5: {
+          color: textSecondary
         },
         h6: {
           color: textSecondary
@@ -111,6 +99,7 @@ const theme = createTheme({
 
       }
     },
+
     MuiButton: {
       styleOverrides: {
         outlinedPrimary: {
@@ -122,6 +111,7 @@ const theme = createTheme({
         }
       }
     },
+
     MuiIconButton: {
       styleOverrides: {
         sizeSmall: {
@@ -134,6 +124,7 @@ const theme = createTheme({
         }
       }
     },
+
     MuiTableHead: {
       styleOverrides: {
         root: {

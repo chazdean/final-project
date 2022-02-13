@@ -24,6 +24,20 @@ export const dashboardStyles = {
     pr: 3,
     height: 45,
     width: 'auto'
-  }
+  },
+
+  investmentsCard: {
+    borderColor: 'rgba(0,0,0,0.71)'
+  },
+
+  stocksCard: {
+    borderColor: '#6E3CBC'
+  },
+
+  cryptoCard: {
+    borderColor: '#289ebf'
+  },
+
+
 
 };

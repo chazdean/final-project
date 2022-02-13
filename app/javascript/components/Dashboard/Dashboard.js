@@ -68,16 +68,19 @@ export default function Dashboard(props) {
           title={"Total Investments"}
           total={totalPortfolioValue}
           link={"/portfolio"}
+          name={"investments"}
         />
         <SummaryCard
           title={"Total Stocks"}
           total={totalStockValue}
           link={"/portfolio"}
+          name={"stocks"}
         />
         <SummaryCard
           title={"Total Crypto"}
           total={totalCryptoValue}
           link={"/portfolio"}
+          name={"crypto"}
         />
       </Grid>
       <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
