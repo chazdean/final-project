@@ -17,7 +17,7 @@ export default function UserCard(props) {
     <Grid item xs={6} md={4}>
       <Card raised={true} >
         <CardContent sx={dashboardStyles.card}>
-          <Typography variant='h5'>{icon} Logged in:</Typography>
+          <Typography variant='h5'>{icon} Welcome!</Typography>
           <Typography variant='h6'>{userName}</Typography>
           <Typography variant='h6'>Date: {displayToday}</Typography>
         </CardContent>

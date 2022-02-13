@@ -13,7 +13,7 @@ export default function SummaryCard(props) {
 
   return (
     <Box sx={watchlistStyles.summaryCard}>
-      <Typography variant='h4'>Total Watchlist - {stockList.length + cryptoList.length}</Typography>
+      <Typography variant='h4'>Watchlist Assets - {stockList.length + cryptoList.length}</Typography>
       <Typography variant='h6'>Stocks - {stockList.length}</Typography>
       <Typography variant='h6'>Cryptocurrency - {cryptoList.length}</Typography>
     </Box>
