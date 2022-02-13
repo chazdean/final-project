@@ -11,7 +11,7 @@ import { totalValue, totalPercent, percentOfAsset } from "../../helpers/totals";
 import { assetChartData, totalPercentChartData, chartOptions } from "../charts/helpers/chartsData";
 
 //MUI
-import {Box, Grid} from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
 //Charts
@@ -42,8 +42,8 @@ export default function Dashboard(props) {
   const totalStockPercent = percentOfAsset(stockList, totalStockValue)
 
   // Percent of Stock vs Crypto for whole portfolio
-  const portfolioStockPercentage = Math.round(totalStockValue/totalPortfolioValue * 100)
-  const portfolioCryptoPercentage = Math.round(totalCryptoValue/totalPortfolioValue * 100)
+  const portfolioStockPercentage = Math.round(totalStockValue / totalPortfolioValue * 100)
+  const portfolioCryptoPercentage = Math.round(totalCryptoValue / totalPortfolioValue * 100)
 
   // Chart Data
   const portfolioChartData = totalPercentChartData(portfolioStockPercentage, portfolioCryptoPercentage);
@@ -55,10 +55,14 @@ export default function Dashboard(props) {
   const stockChartOptions = chartOptions(stockChartData)
   const cryptoChartOptions = chartOptions(cryptoChartData)
 
-  
+
   return (
     <Box sx={dashboardStyles.box}>
-      <DashboardIcon/><h3>Dashboard</h3>
+      <Typography gutterBottom variant='h3' sx={dashboardStyles.title}>
+        <DashboardIcon sx={dashboardStyles.icon} />
+        DASHBOARD
+      </Typography>
+
       <Grid container spacing={2}>
         <SummaryCard
           title={"Total Investments"}
@@ -77,27 +81,27 @@ export default function Dashboard(props) {
         />
       </Grid>
       <Grid container spacing={2} sx={dashboardStyles.gridCharts}>
-        <BreakDown 
-          data={portfolioChartData} 
+        <BreakDown
+          data={portfolioChartData}
           options={portfolioChartOptions}
-          link={"/portfolio"} 
-          pieChart={false} 
+          link={"/portfolio"}
+          pieChart={false}
         />
-        <BreakDown 
+        <BreakDown
           data={stockChartData}
-          options={stockChartOptions} 
-          link={"/portfolio"} 
-          pieChart={true} 
+          options={stockChartOptions}
+          link={"/portfolio"}
+          pieChart={true}
         />
-        <BreakDown 
+        <BreakDown
           data={cryptoChartData}
           options={cryptoChartOptions}
-          link={"/portfolio"} 
-          pieChart={true} 
+          link={"/portfolio"}
+          pieChart={true}
         />
       </Grid>
       <Grid container spacing={2}>
-        <WatchList 
+        <WatchList
           stockCount={stockList.length}
           cryptoCount={cryptoList.length}
           link={"/watchlist"}

@@ -27,7 +27,7 @@ export default function Watchlist(props) {
 
       <Typography gutterBottom variant='h3' sx={watchlistStyles.title}>
         <VisibilityIcon sx={watchlistStyles.icon} />
-        Watchlist
+        WATCHLIST
       </Typography>
 
       <Box>

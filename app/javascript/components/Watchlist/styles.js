@@ -1,7 +1,6 @@
 export const watchlistStyles = {
   title: {
-    color: '#7b1fa2',
-    mb: 6
+    mb: 5
   },
 
   box: {
@@ -13,7 +12,8 @@ export const watchlistStyles = {
   },
 
   icon: {
-    pr: 2,
+    color: 'rgba(0,0,0,0.71)',
+    pr: 3,
     height: 40,
     width: 'auto'
   },

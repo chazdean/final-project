@@ -27,7 +27,7 @@ export default function Portfolio(props) {
 
       <Typography gutterBottom variant='h3' sx={portfolioStyles.title}>
         <ShowChartIcon sx={portfolioStyles.icon} />
-        Portfolio
+        PORTFOLIO
       </Typography>
 
       <Box>
