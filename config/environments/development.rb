@@ -59,7 +59,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # SMTP settings for gmail
+ # SMTP settings for gmail
 config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
@@ -68,6 +68,6 @@ config.action_mailer.smtp_settings = {
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
-end
+
 
 end
