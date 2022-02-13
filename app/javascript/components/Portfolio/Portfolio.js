@@ -44,7 +44,7 @@ export default function Portfolio(props) {
       </Box>
 
       <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
+        <Typography variant="h6" mb={2}>Stocks</Typography>
         <PortfolioList
           data={stockList}
           deleteItem={deleteItem}
@@ -53,7 +53,7 @@ export default function Portfolio(props) {
       </Box>
 
       <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Cryptocurrency</Typography>
+        <Typography variant="h6" mb={2}>Cryptocurrency</Typography>
         <PortfolioList
           data={cryptoList}
           deleteItem={deleteItem}

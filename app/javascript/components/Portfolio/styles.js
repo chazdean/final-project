@@ -46,7 +46,8 @@ export const portfolioStyles = {
   },
 
   tableCell: {
-    width: 130
+    width: 130,
+    color: "white"
   }
 
 };

@@ -41,7 +41,6 @@ export default function WatchlistListItem(props) {
             <Box sx={{ padding: 2, display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
               <Button
                 color="error"
-                variant="contained"
                 startIcon={<HighlightOffIcon />}
                 onClick={() => handleDelete(watchlistItem.id)}
               >Delete</Button>
