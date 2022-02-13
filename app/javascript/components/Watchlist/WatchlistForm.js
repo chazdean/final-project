@@ -36,7 +36,7 @@ export default function WatchlistForm(props) {
 
   return (
     <Box sx={watchlistStyles.formCard}>
-      <Typography color="secondary" variant="subtitle1" mb={2}>Add to your Watchlist:</Typography>
+      <Typography variant="subtitle1" mb={2}>Add to your Watchlist:</Typography>
 
       <form noValidate autoComplete='off' onSubmit={(event) => event.preventDefault()} >
         <SearchBar
@@ -47,14 +47,13 @@ export default function WatchlistForm(props) {
           assetsList={assetsList}
         />
         <Box sx={watchlistStyles.formButtonBox}>
-          <Button sx={{ marginRight: 3 }} color="secondary" onClick={handleClear}>Clear</Button>
+          <Button sx={{ marginRight: 3 }} color="primary" variant="outlined" onClick={handleClear}>Clear</Button>
           <Button
             type='submit'
-            color="secondary"
+            color="primary"
             variant="contained"
             endIcon={<AddIcon />}
             onClick={handleSubmit}
-            disabled={!(selectedAsset)}
           >
             Add
           </Button>

@@ -27,7 +27,7 @@ export default function SummaryCard(props) {
 
       <Typography variant='h6'>Stocks ({Math.round(percentStocks * 100) / 100}%) <br />{formatter.format(subtotalStocks)}</Typography>
 
-      <Typography variant='h6'>Crypto ({Math.round(percentCrypto * 100) / 100}%) <br />{formatter.format(subtotalCryptos)}</Typography>
+      <Typography variant='h6'>Cryptocurrency ({Math.round(percentCrypto * 100) / 100}%) <br />{formatter.format(subtotalCryptos)}</Typography>
     </Box>
   );
 }

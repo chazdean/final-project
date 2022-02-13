@@ -44,7 +44,7 @@ export default function Watchlist(props) {
       </Box>
 
       <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
+        <Typography variant="h6" mb={2}>Stocks</Typography>
         <WatchlistList
           data={stockList}
           deleteItem={deleteItem}
@@ -52,7 +52,7 @@ export default function Watchlist(props) {
       </Box>
 
       <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Cryptocurrency</Typography>
+        <Typography variant="h6" mb={2}>Cryptocurrency</Typography>
         <WatchlistList
           data={cryptoList}
           deleteItem={deleteItem}
