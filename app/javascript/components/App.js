@@ -32,6 +32,8 @@ export default function App() {
         portfolioItems: all[0].data,
         watchlistItems: all[1].data
       }))
+    }).catch((err) => {
+      console.log(err)
     })
   }, [callData]);
 
@@ -106,22 +108,22 @@ export default function App() {
 
   return (
     <BrowserRouter>
-    <ThemeProvider theme={theme} >
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Dashboard portfolioItems={appData.portfolioItems} />} />
-        <Route path="/portfolio" element={<Portfolio
-          portfolioItems={appData.portfolioItems}
-          addPortfolioItem={addPortfolioItem}
-          updatePortfolioItem={updatePortfolioItem}
-          deleteItem={deleteItem}
-        />} />
-        <Route path="/watchlist" element={<Watchlist
-          watchlistItems={appData.watchlistItems}
-          addWatchlistItem={addWatchlistItem}
-          deleteItem={deleteItem}
-        />} />
-      </Routes>
+      <ThemeProvider theme={theme} >
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Dashboard portfolioItems={appData.portfolioItems} />} />
+          <Route path="/portfolio" element={<Portfolio
+            portfolioItems={appData.portfolioItems}
+            addPortfolioItem={addPortfolioItem}
+            updatePortfolioItem={updatePortfolioItem}
+            deleteItem={deleteItem}
+          />} />
+          <Route path="/watchlist" element={<Watchlist
+            watchlistItems={appData.watchlistItems}
+            addWatchlistItem={addWatchlistItem}
+            deleteItem={deleteItem}
+          />} />
+        </Routes>
       </ThemeProvider>
     </BrowserRouter>
   );
