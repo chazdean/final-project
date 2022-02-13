@@ -23,11 +23,11 @@ export default function SummaryCard(props) {
 
   return (
     <Box sx={portfolioStyles.summaryCard}>
-      <Typography variant='h4' color='#9c27b0'>TOTAL {formatter.format(subtotalCryptos + subtotalStocks)}</Typography>
+      <Typography variant='h4'>TOTAL {formatter.format(subtotalCryptos + subtotalStocks)}</Typography>
 
-      <Typography variant='h6' color='#ba68c8'>Stocks ({Math.round(percentStocks * 100) / 100}%) <br />{formatter.format(subtotalStocks)}</Typography>
+      <Typography variant='h6'>Stocks ({Math.round(percentStocks * 100) / 100}%) <br />{formatter.format(subtotalStocks)}</Typography>
 
-      <Typography variant='h6' color='#ba68c8'>Crypto ({Math.round(percentCrypto * 100) / 100}%) <br />{formatter.format(subtotalCryptos)}</Typography>
+      <Typography variant='h6'>Crypto ({Math.round(percentCrypto * 100) / 100}%) <br />{formatter.format(subtotalCryptos)}</Typography>
     </Box>
   );
 }

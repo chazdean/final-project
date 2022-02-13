@@ -40,7 +40,7 @@ export default function PortfolioForm(props) {
 
   return (
     <Box sx={portfolioStyles.formCard}>
-      <Typography color="secondary" variant="subtitle1" mb={2}>Add to your portfolio:</Typography>
+      <Typography variant="subtitle1" mb={2}>Add to your portfolio:</Typography>
 
       <form noValidate autoComplete='off' onSubmit={(event) => event.preventDefault()} >
         <TextField
@@ -48,7 +48,7 @@ export default function PortfolioForm(props) {
           label="Shares"
           variant="outlined"
           fullWidth
-          color="secondary"
+          color="primary"
           placeholder='Shares'
           onChange={(event) => setShares(event.target.value)}
           value={shares}
@@ -61,14 +61,13 @@ export default function PortfolioForm(props) {
           assetsList={assetsList}
         />
         <Box sx={portfolioStyles.formButtonBox}>
-          <Button sx={{ marginRight: 3 }} color="secondary" onClick={handleClear}>Clear</Button>
+          <Button sx={{ marginRight: 3 }} color="primary" variant="outlined" onClick={handleClear}>Clear</Button>
           <Button
             type='submit'
-            color="secondary"
+            color="primary"
             variant="contained"
             endIcon={<AddIcon />}
             onClick={handleSubmit}
-            disabled={!(selectedAsset && shares)}
           >
             Add
           </Button>
