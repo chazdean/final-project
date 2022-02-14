@@ -12,16 +12,16 @@ import PieChart from "../charts/PieChart";
 export default function BreakDown(props) {
   return (
     <Grid item xs={6} md={4}>
-      <Link to={props.link}> 
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent>
-          {props.pieChart ? (
-            <PieChart data={props.data} options={props.options} />
-          ) : (
-            <DougnutChart data={props.data} options={props.options} />
-          )}
-        </CardContent>
-      </Card>
+      <Link to={props.link}>
+        <Card raised={true} sx={{ minWidth: 275 }}>
+          <CardContent>
+            {props.pieChart ? (
+              <PieChart data={props.data} options={props.options} />
+            ) : (
+              <DougnutChart data={props.data} options={props.options} />
+            )}
+          </CardContent>
+        </Card>
       </Link>
     </Grid>
   );

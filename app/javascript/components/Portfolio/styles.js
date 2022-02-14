@@ -1,20 +1,21 @@
 export const portfolioStyles = {
   title: {
-    color: '#7b1fa2',
-    mb: 6
+    mb: 5
   },
 
   box: {
+    maxHeight: "90%",
+    maxWidth: "80%",
     flexGrow: 1,
-    ml: 30,
-    mr: 3,
-    mt: 5,
-    mb: 10
+    ml: '260px',
+    pr: 4,
+    pt: 4,
   },
 
   icon: {
-    pr: 2,
-    height: 40,
+    color: 'rgba(0,0,0,0.71)',
+    pr: 3,
+    height: 45,
     width: 'auto'
   },
 
@@ -46,7 +47,8 @@ export const portfolioStyles = {
   },
 
   tableCell: {
-    width: 130
+    width: 130,
+    color: "white"
   }
 
 };

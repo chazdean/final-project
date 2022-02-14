@@ -27,7 +27,7 @@ export default function Watchlist(props) {
 
       <Typography gutterBottom variant='h3' sx={watchlistStyles.title}>
         <VisibilityIcon sx={watchlistStyles.icon} />
-        Watchlist
+        WATCHLIST
       </Typography>
 
       <Box>
@@ -43,16 +43,16 @@ export default function Watchlist(props) {
         </Paper>
       </Box>
 
-      <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
+      <Box mt={6}>
+        <Typography variant="h6" mb={2}>Stocks</Typography>
         <WatchlistList
           data={stockList}
           deleteItem={deleteItem}
         />
       </Box>
 
-      <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Cryptocurrency</Typography>
+      <Box mt={6} mb={6}>
+        <Typography variant="h6" mb={2}>Cryptocurrency</Typography>
         <WatchlistList
           data={cryptoList}
           deleteItem={deleteItem}

@@ -31,7 +31,7 @@ export default function WatchlistListItem(props) {
         <TableCell align="center">{watchlistItem.symbol}</TableCell>
         <TableCell align="center">{watchlistItem.long_name}</TableCell>
         <TableCell align="center">{formatter.format(watchlistItem.price)}</TableCell>
-        <TableCell align="center" sx={(Number(watchlistItem.percent_change) < 0) ? { color: 'red' } : { color: 'green' }}>{Math.round(watchlistItem.percent_change * 100) / 100}%</TableCell>
+        <TableCell align="center" sx={(Number(watchlistItem.percent_change) < 0) ? { color: '#bf1435' } : { color: '#4caf50' }}>{Math.round(watchlistItem.percent_change * 100) / 100}%</TableCell>
       </TableRow>
 
       <TableRow>
@@ -41,7 +41,6 @@ export default function WatchlistListItem(props) {
             <Box sx={{ padding: 2, display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
               <Button
                 color="error"
-                variant="contained"
                 startIcon={<HighlightOffIcon />}
                 onClick={() => handleDelete(watchlistItem.id)}
               >Delete</Button>

@@ -25,7 +25,7 @@ export default function PortfolioList(props) {
           <TableRow>
             <TableCell sx={{ width: 15 }} />
             <TableCell align="center" sx={portfolioStyles.tableCell}>Symbol</TableCell>
-            <TableCell align="center" sx={{ width: 230 }}>Name</TableCell>
+            <TableCell align="center" sx={{ width: 230, color: "white" }}>Name</TableCell>
             <TableCell align="center" sx={portfolioStyles.tableCell}>Shares</TableCell>
             <TableCell align="center" sx={portfolioStyles.tableCell}>Current Price (USD)</TableCell>
             <TableCell align="center" sx={portfolioStyles.tableCell}>Total Value (USD)</TableCell>

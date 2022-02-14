@@ -1,0 +1,9 @@
+body {
+	margin: 0px;
+	min-height: 100vh;
+	min-width: 100vw;
+	background-image: url(./geometric-bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}

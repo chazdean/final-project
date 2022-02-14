@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 //Components
-import { TableRow, TableCell, IconButton, Collapse, Box, Typography, TextField, Grid, Button, Container } from '@mui/material';
+import { TableRow, TableCell, IconButton, Collapse, Box, TextField, Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -55,7 +55,6 @@ export default function PortfolioListItem(props) {
                   sx={{ marginLeft: 4 }}
                   type='submit'
                   color="secondary"
-                  variant="contained"
                   onClick={() => {
                     handleUpdate(newShares, portfolioItem.id, portfolioItem.asset_id);
                     setNewShares('');
@@ -65,7 +64,7 @@ export default function PortfolioListItem(props) {
 
               <Button
                 color="error"
-                variant="contained"
+
                 startIcon={<HighlightOffIcon />}
                 onClick={() => handleDelete(portfolioItem.id)}
               >Delete</Button>

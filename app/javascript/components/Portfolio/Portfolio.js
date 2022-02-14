@@ -27,7 +27,7 @@ export default function Portfolio(props) {
 
       <Typography gutterBottom variant='h3' sx={portfolioStyles.title}>
         <ShowChartIcon sx={portfolioStyles.icon} />
-        Portfolio
+        PORTFOLIO
       </Typography>
 
       <Box>
@@ -43,8 +43,8 @@ export default function Portfolio(props) {
         </Paper>
       </Box>
 
-      <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Stocks</Typography>
+      <Box mt={6}>
+        <Typography variant="h6" mb={2}>Stocks</Typography>
         <PortfolioList
           data={stockList}
           deleteItem={deleteItem}
@@ -52,8 +52,8 @@ export default function Portfolio(props) {
         />
       </Box>
 
-      <Box mt={8}>
-        <Typography color="secondary" variant="subtitle1" mb={2}>Cryptocurrency</Typography>
+      <Box mt={6} mb={6}>
+        <Typography variant="h6" mb={2}>Cryptocurrency</Typography>
         <PortfolioList
           data={cryptoList}
           deleteItem={deleteItem}

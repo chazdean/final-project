@@ -19,7 +19,7 @@ export default function SearchBar(props) {
       renderInput={(params) => {
         return (
           <TextField
-            color="secondary"
+            color="primary"
             fullWidth
             {...params} label="Which stock or crypto?"
           />
