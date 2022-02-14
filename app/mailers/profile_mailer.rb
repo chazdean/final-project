@@ -7,7 +7,7 @@ class ProfileMailer < ApplicationMailer
   #
   def profile_summary_send
     @greeting = "Hello! Welcome to you profile information for DATE and TIME"
-    #@user = params[:user] # will have to pass in user to get the proper email
+    # @user = params[:user] 
     mail(
       to: ENV["USER_EMAIL"],  ## this will be @user.email 
       subject: "Your Profile in Review"

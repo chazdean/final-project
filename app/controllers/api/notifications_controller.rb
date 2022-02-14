@@ -1,6 +1,6 @@
 class Api::NotificationsController < ApplicationController
   def index
-    @users = User.where(id: 1) #hard coded in for now
+    @user = User.where(id: 1) #hard coded in for now
     render json: @users
   end
 
@@ -9,7 +9,12 @@ class Api::NotificationsController < ApplicationController
   end
 
   def update
-    User.update(params[:id], :email_notifications => user_params[:email_notifications])
+    @user = User.where(id: 1)
+    puts @user
+   if User.update(params[:id], :email_notifications => user_params[:email_notifications]) && user_params[:email_notifications] == true
+    ProfileMailer.profile_summary_send.deliver_later
+   end
+    
   end
 
 private 
