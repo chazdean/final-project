@@ -43,7 +43,7 @@ export default function Portfolio(props) {
         </Paper>
       </Box>
 
-      <Box mt={8}>
+      <Box mt={6}>
         <Typography variant="h6" mb={2}>Stocks</Typography>
         <PortfolioList
           data={stockList}
@@ -52,7 +52,7 @@ export default function Portfolio(props) {
         />
       </Box>
 
-      <Box mt={8}>
+      <Box mt={6} mb={6}>
         <Typography variant="h6" mb={2}>Cryptocurrency</Typography>
         <PortfolioList
           data={cryptoList}

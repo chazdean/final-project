@@ -1,18 +1,20 @@
 export const dashboardStyles = {
   box: {
+    maxHeight: "80%",
+    maxWidth: "80%",
     flexGrow: 1,
-    ml: 30,
-    mr: 3,
-    mt: 5,
+    ml: '260px',
+    pr: 4,
+    pt: 4,
   },
 
   gridBox: {
-    mt: 3,
-    mb: 3
+    mt: 2,
+    mb: 2
   },
 
   title: {
-    mb: 5
+    mb: 4
   },
 
   icon: {
@@ -23,7 +25,7 @@ export const dashboardStyles = {
   },
 
   card: {
-    minHeight: '105px',
+    minHeight: '100px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: "center",

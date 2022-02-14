@@ -4,11 +4,12 @@ export const portfolioStyles = {
   },
 
   box: {
+    maxHeight: "90%",
+    maxWidth: "80%",
     flexGrow: 1,
-    ml: 30,
-    mr: 3,
-    mt: 5,
-    mb: 10
+    ml: '260px',
+    pr: 4,
+    pt: 4,
   },
 
   icon: {
@@ -21,7 +22,7 @@ export const portfolioStyles = {
   headPaper: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '80%'
+    width: '70%'
 
   },
 

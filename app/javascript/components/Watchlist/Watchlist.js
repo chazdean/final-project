@@ -43,7 +43,7 @@ export default function Watchlist(props) {
         </Paper>
       </Box>
 
-      <Box mt={8}>
+      <Box mt={6}>
         <Typography variant="h6" mb={2}>Stocks</Typography>
         <WatchlistList
           data={stockList}
@@ -51,7 +51,7 @@ export default function Watchlist(props) {
         />
       </Box>
 
-      <Box mt={8}>
+      <Box mt={6} mb={6}>
         <Typography variant="h6" mb={2}>Cryptocurrency</Typography>
         <WatchlistList
           data={cryptoList}
