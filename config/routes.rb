@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :portfolio_items, except: [:edit, :index] 
     resources :watchlist_items, only: [:show, :create, :destroy] 
     resources :assets, only: [:index]
-    resources :notifications, only: [:index]
+    resources :notifications, only: [:index, :show, :update]
   end
 
    #catch all routes
