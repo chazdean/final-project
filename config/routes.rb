@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-   #root route for react app
+  
+  #root route for react app
   root 'homepage#index'
 
   namespace :api do
@@ -7,7 +8,11 @@ Rails.application.routes.draw do
     resources :portfolio_items, except: [:edit, :index] 
     resources :watchlist_items, only: [:show, :create, :destroy] 
     resources :assets, only: [:index]
+    resources :users, only: [:create]
+    resources :sessions, only: [:create, :destroy]
   end
+
+  get 'api/current_user' => 'users#current_user'
 
    #catch all routes
    get '/*path' => 'homepage#index'
