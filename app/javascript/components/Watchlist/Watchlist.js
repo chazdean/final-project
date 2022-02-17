@@ -9,7 +9,6 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 //Constants & Helpers
 import { sortStocks, sortCryptos } from '../../helpers/sort'
-import { assets } from '../../constants/assetsArray'  //remove once database call is working
 
 //Styles
 import { watchlistStyles } from "./styles"
@@ -17,7 +16,7 @@ import { watchlistStyles } from "./styles"
 
 export default function Watchlist(props) {
 
-  const { watchlistItems, addWatchlistItem, deleteItem } = props;
+  const { assetsList, watchlistItems, addWatchlistItem, deleteItem } = props;
 
   const stockList = sortStocks(watchlistItems);
   const cryptoList = sortCryptos(watchlistItems);
@@ -37,7 +36,7 @@ export default function Watchlist(props) {
             cryptoList={cryptoList}
           />
           <WatchlistForm
-            assetsList={assets}
+            assetsList={assetsList}
             addWatchlistItem={addWatchlistItem}
           />
         </Paper>
