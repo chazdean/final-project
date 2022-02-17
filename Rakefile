@@ -5,10 +5,12 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
-desc "Send email to users"
-task :email_sender => [:environment] do 
-  User.find_each do |user|
-    ProfileMailer.profile_summary_send.deliver if user.email_notifications == true
-  end
-end
+
+
+# desc "Send email to users"
+# task :email_sender => [:environment] do 
+#   User.find_each do |user|
+#     ProfileMailer.profile_summary_send(user).deliver if user.email_notifications == true
+#   end
+# end
 

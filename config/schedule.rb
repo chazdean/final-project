@@ -23,9 +23,12 @@ set :output, "log/cron.log"
 # Learn more: http://github.com/javan/whenever
 
 # note this is UTC timezone!
-every 1.day, at: '10:50 pm' do
-  rake "email_sender"
-end
+# every 1.day, at: '10:50 pm' do
+#   rake "email_sender"
+# end
+
+
+
 
 
 
