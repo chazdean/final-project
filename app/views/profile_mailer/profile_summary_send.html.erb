@@ -4,16 +4,33 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Here is your daily portfolio breakdown <%=  %>!</p>
+    <p>Here is your daily portfolio breakdown <%= @user.first_name%> <%= @user.last_name%>!</p>
     <p>
     Profile details<br>
     --------------------------
     </p>
     <p>Percentage stocks/crypto</p>
-    <%# Grand total %>
-    <p>Stocks:</p>
-     <%# List current prices and total %>
-    <p>Crypto:</p>
+    <table>
+    <% @portfolio.each do |item| %>
+      <tr>
+          <td><%= item["symbol"]%></td>
+           <td><%= item["shares"]%></td>
+          <td><%= item["price"] %></td>
+          <td><%= item["total_value"]%></td>
+          <td><%= item["percent_of_portfolio"]%></td>
+        </tr>
+    <% end %>
+     </table>
+     <table>
+    <% @watchlist.each do |item| %>
+      <tr>
+          <td><%= item["symbol"]%></td>
+          <td><%= item["price"] %></td>
+          <td><%= item["percent_change"] %></td>
+        </tr>
+    <% end %>
+     </table>
+  
     <%# List current prices and total %>
     <p>Watching 10 Stocks and 7 Crypto</p> 
     <%#list these here %>
