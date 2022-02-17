@@ -15,6 +15,7 @@ axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
 export default function App() {
 
+  const [assetsList, setAssetsList] = useState([]);
   const [callData, setCallData] = useState(false);
   const [appData, setAppData] = useState({
     currentUserId: 1,
@@ -22,6 +23,18 @@ export default function App() {
     watchlistItems: []
   });
 
+  // Assets List Data
+  useEffect(() => {
+    Promise.all([
+      axios.get(`http://localhost:3000/api/assets`),
+    ]).then((all) => {
+      setAssetsList(all[0].data)
+    }).catch((err) => {
+      console.log("Assets List Error:", err)
+    })
+  }, []);
+
+  // API App Data
   useEffect(() => {
     Promise.all([
       axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`),
@@ -36,8 +49,6 @@ export default function App() {
       console.log(err)
     })
   }, [callData]);
-
-  console.log(appData.watchlistItems); // DELETE LINE LATER
 
   const addPortfolioItem = (asset_id, shares) => {
     const portfolio_item = {
@@ -116,12 +127,14 @@ export default function App() {
             watchlistItems={appData.watchlistItems}
           />} />
           <Route path="/portfolio" element={<Portfolio
+            assetsList={assetsList}
             portfolioItems={appData.portfolioItems}
             addPortfolioItem={addPortfolioItem}
             updatePortfolioItem={updatePortfolioItem}
             deleteItem={deleteItem}
           />} />
           <Route path="/watchlist" element={<Watchlist
+            assetsList={assetsList}
             watchlistItems={appData.watchlistItems}
             addWatchlistItem={addWatchlistItem}
             deleteItem={deleteItem}
