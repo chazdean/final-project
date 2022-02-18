@@ -5,7 +5,7 @@ class ProfileMailer < ApplicationMailer
     @watchlist = params[:watchlist]
     mail(
       to: ENV["USER_EMAIL"],  ## this will be @user.email 
-      subject: "Your Profile in Review"
+      subject: "Daily Profile Summary - To The Moon!"
     )
   end
 end
