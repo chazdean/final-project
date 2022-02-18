@@ -15,9 +15,12 @@ class Api::NotificationsController < ApplicationController
     @portfolio = portfolio_items_mailer(@user.id)
     @watchlist = watchlist_items_mailer(@user.id)
 
-    if User.update(params[:id], :email_notifications => user_params[:email_notifications]) && @user.email_notifications == true
-     ProfileMailer.with(user: @user, portfolio: @portfolio, watchlist: @watchlist).profile_summary_send.deliver_later
-   end
+    User.update(params[:id], :email_notifications => user_params[:email_notifications]) 
+    
+  ## to send email when user turns notifications on and presses save
+  #  if User.update(params[:id], :email_notifications => user_params[:email_notifications]) && @user.email_notifications == true
+  #   ProfileMailer.with(user: @user, portfolio: @portfolio, watchlist: @watchlist).profile_summary_send.deliver_later
+  # end
 
   end
 
