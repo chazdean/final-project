@@ -68,7 +68,6 @@ def watchlist_items_mailer(user_id)
 
   @current_prices = get_current_prices(asset_api_params)
   @percent_changes = get_percent_changes(asset_api_params)
-  puts "HEEEELLLLOOOOO", @percent_changes
   new_watchlist_items.each_with_index { |item, index| 
   item["symbol"] = asset_items[index]["symbol"]
   item["long_name"] = asset_items[index]["long_name"]
