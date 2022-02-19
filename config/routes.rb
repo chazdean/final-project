@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :watchlist_items, only: [:show, :create, :destroy] 
     resources :assets, only: [:index]
     resources :users, only: [:create]
-    resources :sessions, only: [:create, :destroy]
+    resources :sessions, only: [:create, :destroy, :show]
   end
 
   get 'api/current_user' => 'users#current_user'
