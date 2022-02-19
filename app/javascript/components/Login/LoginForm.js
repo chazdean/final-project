@@ -94,7 +94,7 @@ export default function LoginForm(props) {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
-                handleLogin(email, password, true);
+                handleLogin(email, password);
                 navigate('/');
               }}
               disabled={!email && !password}
