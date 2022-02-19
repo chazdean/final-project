@@ -127,10 +127,18 @@ export default function App() {
       })
   };
 
+  const handleLogin = (email, password) => {
+    setSession(true);
+    return axios.post(`http://localhost:3000/api/sessions`, { email, password })
+      .then((res) => {
+        console.log('login successful')
+      })
+  };
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme} >
-        {session && <NavBar />}
+        {session && <NavBar handleLogout={() => setSession(false)} />}
         {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Dashboard
@@ -150,7 +158,9 @@ export default function App() {
             addWatchlistItem={addWatchlistItem}
             deleteItem={deleteItem}
           />} />
-          <Route path="/login" element={<LoginForm session={session} />}></Route>
+          <Route path="/login" element={<LoginForm
+            handleLogin={handleLogin}
+          />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>
