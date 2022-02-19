@@ -39,6 +39,7 @@ export default function Notifications() {
         <NotificationsIcon sx={notificationStyles.icon} />
         NOTIFICATIONS
       </Typography>
+      <Box sx={{ml: 2}}>
       <FormGroup >
         <FormControlLabel
           control={
@@ -51,6 +52,7 @@ export default function Notifications() {
         />
         <Button variant="contained" sx={notificationStyles.button} onClick={handleSubmit}>Save</Button>
       </FormGroup>
+      </Box>
     </Box>
   );
 }
