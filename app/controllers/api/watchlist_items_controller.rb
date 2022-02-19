@@ -1,4 +1,7 @@
 class Api::WatchlistItemsController < ApplicationController
+    #Disabled CSRF Token for testing controllers REMOVE when done
+    skip_before_action :verify_authenticity_token
+
     def show
         watchlist_items = WatchListItem.where(user_id: params[:id])
         
@@ -28,6 +31,26 @@ class Api::WatchlistItemsController < ApplicationController
     def create
         watchlist_item = WatchListItem.new(watchlist_item_params)
         watchlist_item.save
+        
+        new_watchlist_item = [watchlist_item.attributes]
+        asset_item = Asset.where(id: new_watchlist_item[0]["asset_id"])
+        asset_api_param = get_asset_api_params(asset_item).join(',')
+        
+        current_price = get_current_prices(asset_api_param)
+        @current_prices = { asset_api_param => current_price }
+
+        percent_change = get_percent_changes(asset_api_param)
+        @percent_changes = { asset_api_param => percent_change }
+
+        new_watchlist_item.each_with_index { |item, index| 
+            item["symbol"] = asset_item[index]["symbol"]
+            item["long_name"] = asset_item[index]["long_name"]
+            item["category"] = asset_item[index]["category"]
+            add_attr_current_price(item)
+            add_attr_percent_changes(item)
+        }
+
+        render json: new_watchlist_item
     end
 
     def destroy

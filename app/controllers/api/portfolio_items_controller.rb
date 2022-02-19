@@ -38,6 +38,24 @@ class Api::PortfolioItemsController < ApplicationController
     def create
         portfolio_item = PortfolioItem.new(portfolio_item_params)
         portfolio_item.save
+        
+        new_portfolio_item = [portfolio_item.attributes]
+        asset_item = Asset.where(id: new_portfolio_item[0]["asset_id"])
+        asset_api_param = get_asset_api_params(asset_item).join(',')
+        current_price = get_current_prices(asset_api_param)
+        @current_prices = { asset_api_param => current_price }
+
+        new_portfolio_item.each_with_index { |item, index| 
+            item["symbol"] = asset_item[index]["symbol"]
+            item["long_name"] = asset_item[index]["long_name"]
+            item["category"] = asset_item[index]["category"]
+            add_attr_current_price(item)
+            add_attr_total_value(item)
+        }
+
+        add_attr_percent_of_portfolio(new_portfolio_item)
+
+        render json: new_portfolio_item
     end
 
     def update
