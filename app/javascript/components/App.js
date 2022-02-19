@@ -16,6 +16,7 @@ import theme from "../theme";
 //Helpers
 import { removeOneFromList } from "../helpers/removeOneFromList"
 import { updateSharesForItem } from "../helpers/updateSharesForItem"
+import { addOneToList } from "../helpers/addOneToList"
 
 //Axios-Rails Configuration
 import axios from "axios";
@@ -75,14 +76,17 @@ export default function App() {
     };
     return axios
       .post(`http://localhost:3000/api/portfolio_items`, { portfolio_item })
-      .then(() => {
-        setCallData(!callData);
+      .then((res) => {
+        const newPortfolioItems = addOneToList("portfolio", appData.portfolioItems, res.data[0])
+        setAppData((prev) => ({
+          ...prev,
+          portfolioItems: newPortfolioItems,
+        }));
       });
   };
 
   const deleteItem = (listName, id) => {
     if (listName === "portfolio") {
-      // const watchlistItems = [...appData.watchlistItems]  //delete this line or map out every obj in the array ... ??
       const newPortfolioItems = removeOneFromList(
         listName,
         appData.portfolioItems,
@@ -148,8 +152,12 @@ export default function App() {
     };
     return axios
       .post(`http://localhost:3000/api/watchlist_items`, { watchlist_item })
-      .then(() => {
-        setCallData(!callData);
+      .then((res) => {
+        const newWatchlistItems = addOneToList("watchlist", appData.watchlistItems, res.data[0])
+        setAppData((prev) => ({
+          ...prev,
+          watchlistItems: newWatchlistItems,
+        }));
       });
   };
 
@@ -173,7 +181,6 @@ export default function App() {
     <BrowserRouter>
       <ThemeProvider theme={theme} >
         {session && <NavBar handleLogout={handleLogout} />}
-        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Dashboard
             portfolioItems={appData.portfolioItems}
