@@ -12,7 +12,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { navStyles } from "./styles.js"
 
 //Logo
-import logo from "/public/logo_astronaut"
+import logo from "/public/rocket_logo"
 
 //Navbar options
 import { navbarOptions } from "./constants/navbarOptions";
