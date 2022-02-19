@@ -9,6 +9,7 @@ import PersonIcon from '@mui/icons-material/Person';
 
 //Styles
 import loginPhoto from "../../../../public/login-photo"
+import logo from "../../../../public/rocket_logo"
 
 
 function Copyright() {
@@ -74,7 +75,6 @@ export default function LoginForm(props) {
               id="email"
               label="Email Address"
               name="email"
-              autoFocus
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
@@ -114,6 +114,15 @@ export default function LoginForm(props) {
               </Grid>
             </Grid>
             <Copyright />
+            <Box
+              sx={{
+                height: '180px',
+                width: '180px',
+                mt: 5,
+              }}
+            >
+              <img src={logo} alt="Logo" />
+            </Box>
           </Box>
         </Box>
       </Grid>
