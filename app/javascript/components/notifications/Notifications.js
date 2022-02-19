@@ -39,7 +39,7 @@ export default function Notifications() {
         <NotificationsIcon sx={notificationStyles.icon} />
         NOTIFICATIONS
       </Typography>
-      <Box sx={{ml: 2}}>
+      <Box sx={{ml: 1.5}}>
       <FormGroup >
         <FormControlLabel
           control={
