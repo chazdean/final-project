@@ -28,7 +28,6 @@ export default function App() {
 
   const [session, setSession] = useState(false);
   const [assetsList, setAssetsList] = useState([]);
-  const [callData, setCallData] = useState(false);
   const [appData, setAppData] = useState({
     currentUserId: 1,
     portfolioItems: [],
@@ -66,7 +65,7 @@ export default function App() {
     }).catch((err) => {
       console.log(err)
     })
-  }, [callData]);
+  }, []);
 
   const addPortfolioItem = (asset_id, shares) => {
     const portfolio_item = {
