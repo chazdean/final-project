@@ -9,7 +9,6 @@ import ShowChartIcon from '@mui/icons-material/ShowChart';
 
 //Constants
 import { sortStocks, sortCryptos } from '../../helpers/sort'
-import { assets } from '../../constants/assetsArray'  //remove once database call is working
 
 //Styles
 import { portfolioStyles } from "./styles"
@@ -17,7 +16,7 @@ import { portfolioStyles } from "./styles"
 
 export default function Portfolio(props) {
 
-  const { portfolioItems, addPortfolioItem, updatePortfolioItem, deleteItem } = props;
+  const { assetsList, portfolioItems, addPortfolioItem, updatePortfolioItem, deleteItem } = props;
 
   const stockList = sortStocks(portfolioItems);
   const cryptoList = sortCryptos(portfolioItems);
@@ -37,7 +36,7 @@ export default function Portfolio(props) {
             cryptoList={cryptoList}
           />
           <PortfolioForm
-            assetsList={assets}
+            assetsList={assetsList}
             addPortfolioItem={addPortfolioItem}
           />
         </Paper>

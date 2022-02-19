@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//Components
+import NavBar from "./Nav/NavBar";
 import Dashboard from "./Dashboard/Dashboard";
 import Portfolio from "./Portfolio/Portfolio";
 import Notifications from "./notifications/Notifications";
 import Watchlist from "./Watchlist/Watchlist";
-import NavBar from "./Nav/NavBar";
-import axios from "axios";
-import { removeOneFromList } from "../helpers/removeOneFromList";
-import { updateSharesForItem } from "../helpers/updateSharesForItem";
+import LoginForm from "./Login/LoginForm";
+
+//Theme
 import { ThemeProvider } from "@mui/material";
 import theme from "../theme";
 
-const csrfToken = document.querySelector('[name="csrf-token"]').content;
-axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
+//Helpers
+import { removeOneFromList } from "../helpers/removeOneFromList"
+import { updateSharesForItem } from "../helpers/updateSharesForItem"
+
+//Axios-Rails Configuration
+import axios from "axios";
+const csrfToken = document.querySelector('[name="csrf-token"]').content
+axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
 
 export default function App() {
+
+  const [session, setSession] = useState(false);
+  const [assetsList, setAssetsList] = useState([]);
   const [callData, setCallData] = useState(false);
   const [appData, setAppData] = useState({
     currentUserId: 1,
@@ -22,24 +34,38 @@ export default function App() {
     watchlistItems: [],
   });
 
+  // Assets List Data
   useEffect(() => {
     Promise.all([
-      axios.get(
-        `http://localhost:3000/api/portfolio_items/${appData.currentUserId}`
-      ),
-      axios.get(
-        `http://localhost:3000/api/watchlist_items/${appData.currentUserId}`
-      ),
+      axios.get(`http://localhost:3000/api/assets`),
+    ]).then((all) => {
+      setAssetsList(all[0].data)
+    }).catch((err) => {
+      console.log("Assets List Error:", err)
+    })
+  }, []);
+
+  // API App Data
+  useEffect(() => {
+    Promise.all([
+      axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`),
+      axios.get(`http://localhost:3000/api/watchlist_items/${appData.currentUserId}`),
+      axios.get(`http://localhost:3000/api/sessions/${appData.currentUserId}`)
     ]).then((all) => {
       setAppData((prev) => ({
         ...prev,
         portfolioItems: all[0].data,
-        watchlistItems: all[1].data,
+        watchlistItems: all[1].data
       }));
-    });
-  }, [callData]);
 
-  console.log(appData.watchlistItems); // DELETE LINE LATER
+      if (all[2].data) {
+        setSession(true);
+      }
+
+    }).catch((err) => {
+      console.log(err)
+    })
+  }, [callData]);
 
   const addPortfolioItem = (asset_id, shares) => {
     const portfolio_item = {
@@ -127,42 +153,49 @@ export default function App() {
       });
   };
 
+  const handleLogin = (email, password) => {
+    setSession(true);
+    return axios.post(`http://localhost:3000/api/sessions`, { email, password })
+      .then((res) => {
+        console.log('login successful')
+      })
+  };
+
+  const handleLogout = () => {
+    setSession(false);
+    return axios.delete(`http://localhost:3000/api/sessions/${appData.currentUserId}`)
+      .then((res) => {
+        console.log('logout complete')
+      })
+  };
+
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <NavBar />
+      <ThemeProvider theme={theme} >
+        {session && <NavBar handleLogout={handleLogout} />}
+        {/* <NavBar /> */}
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Dashboard
-                portfolioItems={appData.portfolioItems}
-                watchlistItems={appData.watchlistItems}
-              />
-            }
-          />
-          <Route
-            path="/portfolio"
-            element={
-              <Portfolio
-                portfolioItems={appData.portfolioItems}
-                addPortfolioItem={addPortfolioItem}
-                updatePortfolioItem={updatePortfolioItem}
-                deleteItem={deleteItem}
-              />
-            }
-          />
-          <Route
-            path="/watchlist"
-            element={
-              <Watchlist
-                watchlistItems={appData.watchlistItems}
-                addWatchlistItem={addWatchlistItem}
-                deleteItem={deleteItem}
-              />
-            }
-          />
-          <Route path="/notifications" element={<Notifications />}/>
+          <Route path="/" element={<Dashboard
+            portfolioItems={appData.portfolioItems}
+            watchlistItems={appData.watchlistItems}
+          />} />
+          <Route path="/portfolio" element={<Portfolio
+            assetsList={assetsList}
+            portfolioItems={appData.portfolioItems}
+            addPortfolioItem={addPortfolioItem}
+            updatePortfolioItem={updatePortfolioItem}
+            deleteItem={deleteItem}
+          />} />
+          <Route path="/watchlist" element={<Watchlist
+            assetsList={assetsList}
+            watchlistItems={appData.watchlistItems}
+            addWatchlistItem={addWatchlistItem}
+            deleteItem={deleteItem}
+          />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/login" element={<LoginForm
+            handleLogin={handleLogin}
+          />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

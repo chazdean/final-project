@@ -71,7 +71,7 @@ export default function Dashboard(props) {
 
       <Grid container spacing={3} sx={dashboardStyles.gridBox}>
         <UserCard
-          userName={"Jackson Five"}
+          userName={"Bob Bobberton"}
           icon={<PersonIcon />}
         />
         <CountCard

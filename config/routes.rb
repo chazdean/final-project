@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :assets, only: [:index]
     resources :notifications, only: [:index, :show, :update]
     resources :users, only: [:create]
-    resources :sessions, only: [:create, :destroy]
+    resources :sessions, only: [:create, :destroy, :show]
   end
 
   get 'api/current_user' => 'users#current_user'

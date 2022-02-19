@@ -1,7 +1,7 @@
 import React from "react";
 
 //MUI
-import {Drawer, List, Divider, ListItem} from "@mui/material";
+import { Drawer, List, Divider, ListItem } from "@mui/material";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
@@ -17,10 +17,11 @@ import logo from "/public/rocket_logo"
 //Navbar options
 import { navbarOptions } from "./constants/navbarOptions";
 
-export default function NavBar() {
+export default function NavBar(props) {
+  const { handleLogout } = props
   const { pathname } = useLocation()
   const navigate = useNavigate();
- 
+
   return (
     <Drawer
       sx={navStyles.drawer}
@@ -31,14 +32,19 @@ export default function NavBar() {
       <Divider />
       <List>
         {navbarOptions.map((option, index) => (
-          <ListItem 
+          <ListItem
             sx={navStyles.listItem}
-            button 
+            button
             key={option.id}
-            onClick={() => navigate(option.route)}
+            onClick={() => {
+              navigate(option.route)
+              if (option.label === 'Logout') {
+                handleLogout();
+              }
+            }}
             selected={option.route === pathname}
           >
-            <ListItemIcon sx={{color:"white"}}>{option.icon} </ListItemIcon>
+            <ListItemIcon sx={{ color: "white" }}>{option.icon} </ListItemIcon>
             <ListItemText primary={option.label} />
           </ListItem>
         ))}
