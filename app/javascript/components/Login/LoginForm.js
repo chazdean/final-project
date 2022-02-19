@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
 
+//Router
+import { useNavigate } from "react-router-dom";
+
 //Components
 import { Box, Typography, TextField, Grid, Button, CssBaseline, Avatar, Paper, Link } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 
-//Helpers
-
 //Styles
-import { loginStyles } from "./styles";
 import loginPhoto from "../../../../public/login-photo"
 
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="rgba(0,0,0,0.71)" align="center">
+    <Typography variant="body2" color="rgba(0,0,0,0.71)" align="center" sx={{ mt: 5 }}>
       <Link color="inherit" href="https://github.com/chazdean/final-project">
         Github Repo
       </Link>{' '}
+      <br />
       {' Copyright © '}
       {new Date().getFullYear()}
       {'.'}
@@ -25,14 +26,11 @@ function Copyright() {
 }
 
 export default function LoginForm(props) {
-  const { session } = props;
+  const { handleLogin } = props;
 
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = () => {
-    console.log('Login selected')
-  }
 
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
@@ -54,11 +52,12 @@ export default function LoginForm(props) {
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <Box
           sx={{
-            my: 8,
+            my: 12,
             mx: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            justifyContent: 'center'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: '#289ebf' }}>
@@ -67,7 +66,7 @@ export default function LoginForm(props) {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component="form" noValidate onSubmit={(event) => event.preventDefault()} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -75,8 +74,9 @@ export default function LoginForm(props) {
               id="email"
               label="Email Address"
               name="email"
-              autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
             <TextField
               margin="normal"
@@ -86,13 +86,18 @@ export default function LoginForm(props) {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => {
+                handleLogin(email, password, true);
+                navigate('/');
+              }}
+              disabled={!email && !password}
             >
               Sign In
             </Button>
@@ -108,7 +113,7 @@ export default function LoginForm(props) {
                 </Link>
               </Grid>
             </Grid>
-            <Copyright sx={{ mt: 5 }} />
+            <Copyright />
           </Box>
         </Box>
       </Grid>
