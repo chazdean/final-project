@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FormGroup, FormControlLabel, Switch, Button } from "@mui/material";
 import axios from "axios";
+
+//MUI
+import { Typography, Box, FormGroup, FormControlLabel, Switch, Button } from "@mui/material";
+import NotificationsIcon from '@mui/icons-material/Notifications';
+
+
+//Styles
+import { notificationStyles } from './styles';
 
 export default function Notifications() {
   const [userData, setUserData] = useState({});
@@ -27,7 +34,12 @@ export default function Notifications() {
 
 
   return (
-      <FormGroup sx={{ ml: 30 }}>
+    <Box sx={notificationStyles.box}>
+      <Typography gutterBottom variant='h3' sx={notificationStyles.title}>
+        <NotificationsIcon sx={notificationStyles.icon} />
+        NOTIFICATIONS
+      </Typography>
+      <FormGroup >
         <FormControlLabel
           control={
             <Switch
@@ -35,10 +47,10 @@ export default function Notifications() {
               onChange={(event) => setToggle(event.target.checked)}
             />
           }
-          label="Notifications"
+          label="Daily Email Summary"
         />
-        <FormControlLabel disabled control={<Switch />} label="Disabled" />
-        <Button onClick={handleSubmit}>Save</Button>
+        <Button variant="contained" sx={notificationStyles.button} onClick={handleSubmit}>Save</Button>
       </FormGroup>
+    </Box>
   );
 }
