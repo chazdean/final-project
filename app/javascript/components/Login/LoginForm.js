@@ -114,16 +114,8 @@ export default function LoginForm(props) {
               </Grid>
             </Grid>
             <Copyright />
-            <Box
-              sx={{
-                height: '180px',
-                width: '180px',
-                mt: 5,
-              }}
-            >
-              <img src={logo} alt="Logo" />
-            </Box>
           </Box>
+          <img src={logo} alt="Logo" className="login-logo" />
         </Box>
       </Grid>
     </Grid>
