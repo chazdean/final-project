@@ -48,13 +48,19 @@ export default function App() {
   useEffect(() => {
     Promise.all([
       axios.get(`http://localhost:3000/api/portfolio_items/${appData.currentUserId}`),
-      axios.get(`http://localhost:3000/api/watchlist_items/${appData.currentUserId}`)
+      axios.get(`http://localhost:3000/api/watchlist_items/${appData.currentUserId}`),
+      axios.get(`http://localhost:3000/api/sessions/${appData.currentUserId}`)
     ]).then((all) => {
       setAppData((prev) => ({
         ...prev,
         portfolioItems: all[0].data,
         watchlistItems: all[1].data
-      }))
+      }));
+
+      if (all[2].data) {
+        setSession(true);
+      }
+
     }).catch((err) => {
       console.log(err)
     })
@@ -135,10 +141,18 @@ export default function App() {
       })
   };
 
+  const handleLogout = () => {
+    setSession(false);
+    return axios.delete(`http://localhost:3000/api/sessions/${appData.currentUserId}`)
+      .then((res) => {
+        console.log('logout complete')
+      })
+  };
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme} >
-        {session && <NavBar handleLogout={() => setSession(false)} />}
+        {session && <NavBar handleLogout={handleLogout} />}
         {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<Dashboard
