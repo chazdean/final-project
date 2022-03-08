@@ -24,25 +24,25 @@ This app was built by [Chaz Dean](https://github.com/chazdean), [Justin Wheeler]
 
 ## Final Product 
 
-Login Page
+### Login Page
 !["Login"](https://github.com/chazdean/final-project/blob/readme/docs/TTMLogin.png?raw=true)
 
-Dashboard
+### Dashboard
 !["Dashboard"](https://github.com/chazdean/final-project/blob/readme/docs/TTMDashboard.png?raw=true)
 
-Portfolio
+### Portfolio
 !["Portfolio"](https://github.com/chazdean/final-project/blob/readme/docs/TTMPortfolio.png?raw=true)
 
-Edit Porfolio Item
+### Edit Porfolio Item
 !["PortfolioEdit"](https://github.com/chazdean/final-project/blob/readme/docs/TTMPortfolio-edit.png?raw=true)
 
-Watchlist
+### Watchlist
 !["Watchlist"](https://github.com/chazdean/final-project/blob/readme/docs/TTMWatchList.png?raw=true)
 
-Notifcations Page
+### Notifcations Page
 !["NotificationsPage"](https://github.com/chazdean/final-project/blob/readme/docs/TTMNotifications.png?raw=true)
 
-Email Notification
+### Notifications
 !["Email"](https://github.com/chazdean/final-project/blob/readme/docs/TMMEmailNotifications.png?raw=true)
 
 ## Dependencies
