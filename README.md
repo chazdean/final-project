@@ -17,7 +17,6 @@ This app was built by [Chaz Dean](https://github.com/chazdean), [Justin Wheeler]
 
 ## Built With 
 
-- Ruby v2.6.6
 - Rails v5.2.6
 - Node v16.13.2
 - React v17.0.2
@@ -72,7 +71,7 @@ Email Notification
 
 - Install all dependencies using `npm install` and `yarn install`
 - Migrate the seed data using `rails db:migrate`
-- Get free API key from TwelveData - https://twelvedata.com/ and enter   it into a .env file following the .env.example
+- Get free API key from TwelveData - https://twelvedata.com/ - and enter it into a .env file following the .env.example
 - Start rails server with `bin/rails s -b 0.0.0.0`
 - Navigate to the appropriate server on your browser.
 - Note: Email notifications will not send without more extensive setup including a gmail app key. 
