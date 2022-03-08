@@ -1,14 +1,18 @@
-# To The Moon
+# ToTheMoon
 
-To the Moon is a portfolio tracker for both stock and crypto investments. It gets live data through the TwelveData API to show the latest prices and information on all assets. 
+TotheMoon is a portfolio tracker for both stock and crypto investments. Whether you’re a day trader or long term investor, keeping an eye on your earnings is always top of mind in this volatile world. ToTheMoon bridges the gap between your traditional stock portfolio and crypto wallet.  Get a clear picture of your entire portfolio with our futuristic investment dashboard, and stay up to date on movements in the market!
+
+
+This app was built by [Chaz Dean](https://github.com/chazdean), [Justin Wheeler](https://github.com/wheeljust) and [Kelsey Erickson](https://github.com/KelseyErickson). 
 
 ## Features
 
+- Up to date prices and information using the twelvedata API
 - A dashboard with clear data visualization for an easy look at the current state of the portfolio. 
-- Autofilled searchbar and editing features. 
-- Portfolio page to view, add, and edit stocks and cryptos.
+- Autofilled searchbar. 
+- Portfolio page to view, add, edit, and delete stocks and cryptos.
 - Watchlist page to view, add, and delete stocks and cryptos.
-- Email summary if user chooses.
+- Email summary when notifications are turned on.
 
 
 ## Built With 
@@ -22,36 +26,25 @@ To the Moon is a portfolio tracker for both stock and crypto investments. It get
 ## Final Product 
 
 Login Page
-!["Login"]
+!["Login"](https://github.com/chazdean/final-project/blob/readme/docs/TTMLogin.png?raw=true)
 
-View the Dashboard
-!["Dashboard"]
+Dashboard
+!["Dashboard"](https://github.com/chazdean/final-project/blob/readme/docs/TTMDashboard.png?raw=true)
 
 Portfolio
-!["Portfolio"]
+!["Portfolio"](https://github.com/chazdean/final-project/blob/readme/docs/TTMPortfolio.png?raw=true)
 
 Edit Porfolio Item
-!["PortfolioEdit"]
+!["PortfolioEdit"](https://github.com/chazdean/final-project/blob/readme/docs/TTMPortfolio-edit.png?raw=true)
 
 Watchlist
-!["Watchlist"]
+!["Watchlist"](https://github.com/chazdean/final-project/blob/readme/docs/TTMWatchList.png?raw=true)
 
 Notifcations Page
-!["NotificationsPage"]
+!["NotificationsPage"](https://github.com/chazdean/final-project/blob/readme/docs/TTMNotifications.png?raw=true)
 
-Email Sent to Summarize Portfolio and Watchlist
-!["Email"]
-
-
-
-# Getting Started
-
-- npm install
-- yarn install
-- db:migrate
-- Get free API key from TwelveData - https://twelvedata.com/ and enter   it into a .env file following the .env.example
-- start rails server - bin/rails s -b 0.0.0.0`
-
+Email Notification
+!["Email"](https://github.com/chazdean/final-project/blob/readme/docs/TMMEmailNotifications.png?raw=true)
 
 ## Dependencies
 
@@ -74,3 +67,13 @@ Email Sent to Summarize Portfolio and Watchlist
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
     "yarn": "^1.22.17"
+
+# Getting Started
+
+- Install all dependencies using `npm install` and `yarn install`
+- Migrate the seed data using `rails db:migrate`
+- Get free API key from TwelveData - https://twelvedata.com/ and enter   it into a .env file following the .env.example
+- Start rails server with `bin/rails s -b 0.0.0.0`
+- Navigate to the appropriate server on your browser.
+- Note: Email notifications will not send without more extensive setup including a gmail app key. 
+
