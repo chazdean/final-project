@@ -1,4 +1,4 @@
-# ToTheMoon
+# To The Moon
 
 TotheMoon is a portfolio tracker for both stock and crypto investments. Whether you’re a day trader or long term investor, keeping an eye on your earnings is always top of mind in this volatile world. ToTheMoon bridges the gap between your traditional stock portfolio and crypto wallet.  Get a clear picture of your entire portfolio with our futuristic investment dashboard, and stay up to date on movements in the market!
 
